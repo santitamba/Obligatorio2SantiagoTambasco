@@ -31,8 +31,9 @@ class ViewControllerTableViewCell: UITableViewCell {
         updateLabel()
     }
     @IBAction func myButtonMinus(_ sender: UIButton) {
-        if item.quantity == 0{
+        if item.quantity == 1{
             changeStepperInVisible()
+            item.quantity = item.quantity - 1
         }
         else{
             item.quantity = item.quantity - 1

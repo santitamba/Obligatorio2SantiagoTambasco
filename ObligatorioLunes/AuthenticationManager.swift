@@ -25,10 +25,11 @@ class AuthenticationManager {
             UserDefaults.standard.set(uuid, forKey: tokenKey)
             response = AuthenticationResponse(token: uuid)
         }
-        let randomDouble = Double.random(in: 1...2)
-        DispatchQueue.main.asyncAfter(deadline: .now() + randomDouble) {
+        let delay = arc4random_uniform(1) + 1
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + Double(delay)) {
             onCompletion(response)
         }
     }
-
+    
 }
