@@ -288,6 +288,14 @@
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
+                                <pickerView key="backgroundView" hidden="YES" contentMode="scaleToFill" fixedFrame="YES" id="O9v-HE-aPM">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="440"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <connections>
+                                        <outlet property="dataSource" destination="LCi-f7-Rkz" id="KB8-yr-RTj"/>
+                                        <outlet property="delegate" destination="LCi-f7-Rkz" id="u4q-2L-NcD"/>
+                                    </connections>
+                                </pickerView>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="cellSecondView" reuseIdentifier="cellSecondView" id="YZm-dq-xui" customClass="ViewControllerSeconViewCell" customModule="ObligatorioLunes" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="170" height="179"/>
@@ -377,7 +385,9 @@
                     </view>
                     <connections>
                         <outlet property="ChechoutButton" destination="JI9-Bm-kKT" id="Ycn-SY-Ox1"/>
+                        <outlet property="SecondView" destination="ucT-44-MJ6" id="gCZ-tG-krk"/>
                         <outlet property="TotalPriceLabel" destination="csM-Pd-rCy" id="oLx-ah-kvG"/>
+                        <outlet property="picker" destination="O9v-HE-aPM" id="juX-ob-wrA"/>
                         <segue destination="BYZ-38-t0r" kind="showDetail" identifier="FirstViewSegue" id="neY-Pu-qA1"/>
                     </connections>
                 </viewController>
@@ -411,7 +421,6 @@
         <image name="icon-plus" width="12" height="12"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="mwx-va-J7m"/>
         <segue reference="neY-Pu-qA1"/>
     </inferredMetricsTieBreakers>
 </document>

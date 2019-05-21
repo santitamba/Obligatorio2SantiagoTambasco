@@ -15,6 +15,7 @@ class SupermarketItem{
     //let category: CategoryType
     //let image: String
     
+    
     init(quantity: Int, price: Int, name:String, id:Int /*, category:CategoryType , image:String*/) {
         self.quantity = quantity
         self.price = price
@@ -24,6 +25,9 @@ class SupermarketItem{
        // self.image = image
     }
     
+    func clean(){
+        self.quantity=0
+    }
 }
 /*enum CategoryType:String{
     case fruits = "Fruit"

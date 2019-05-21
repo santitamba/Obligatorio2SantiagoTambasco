@@ -31,6 +31,7 @@ class ViewControllerSeconViewCell: UICollectionViewCell{
         
     }
     
+    
 //
 //    MyLabel.text = item.name
 //    MyLabelPrice.text = "$ " + String(item.price)

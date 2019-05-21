@@ -79,6 +79,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         cell.item = item
         
         cell.configureCell()
+    
         
         return cell
     }
@@ -107,7 +108,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         searchBar.delegate = self
         myTableView.delegate = self
         myTableView.dataSource = self
@@ -117,6 +117,12 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             self.timer=Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(self.changeImage), userInfo: nil, repeats: true)
         }
         setUpItems()
+        myTableView.reloadData()
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         myTableView.reloadData()
     }
     
