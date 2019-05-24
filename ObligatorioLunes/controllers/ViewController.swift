@@ -18,40 +18,99 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     @IBOutlet weak var pageView: UIPageControl!
     
-    @IBAction func ClickCartButton(_ sender: Any) {
-        self.performSegue(withIdentifier: "SecondViewSegue", sender: self)
-    }
-    @IBAction func CartButton(_ sender: UIBarButtonItem) {
-        self.performSegue(withIdentifier: "SecondViewSegue", sender: self)
-    }
-    
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier=="SecondViewSegue"{
-            if let controller=segue.destination as? SecondScreenViewController{
-                var tempElements0 = currentItems[0].filter({$0.quantity > 0 }) //Le paso todo lo de la seccion 0
-                let tempElements1 = currentItems[1].filter({$0.quantity > 0 })//Le paso todo lo de la seccion 1
-                tempElements0.append(contentsOf: tempElements1)
-                controller.elements = tempElements0
-            }
-        }
-    }
+    
     
     var imgArr=[UIImage(named:"Banner-1"),UIImage(named:"Banner-2"),UIImage(named:"Banner-3"),UIImage(named:"Banner-4")]
     var timer=Timer()
     var counter=0
     let sections=["fruits","veggies"]
-    var searchedItem = [[SupermarketItem]]()
+    var searchedItem = [[SuperItem]]()
+    //var searchedItem = [[SupermarketItem]]()
     var searching = false
-    var currentItems = [[SupermarketItem]]()
+    var items = [[SupermarketItem]]()
+    //var currentItems = [[SupermarketItem]]()
+    var currentItems = [[SuperItem]]()
+    var fruits = [SuperItem]()
+    var veggies = [SuperItem]()
+    var dairys = [SuperItem]()
+    let apiManager = ApiManager.shared
+    //var products = [Products]()
+    
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier=="SecondViewSegue"{
+            if let controller=segue.destination as? SecondScreenViewController{
+                //var tempElements0 = currentItems[0].filter({$0.quantity > 0 }) //Le paso todo lo de la seccion 0
+                //let tempElements1 = currentItems[1].filter({$0.quantity > 0 })//Le paso todo lo de la seccion 1
+                //tempElements0.append(contentsOf: tempElements1)
+                //controller.elements = tempElements0
+            }
+        }
+    }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        searchBar.delegate = self
+        myTableView.delegate = self
+        myTableView.dataSource = self
+        pageView.numberOfPages=imgArr.count
+        pageView.currentPage=0
+        DispatchQueue.main.async {
+            self.timer=Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(self.changeImage), userInfo: nil, repeats: true)
+        }
+        //Este es el SetUp que comente para pasar a recibir por ws
+        //setUpItems()
+        myTableView.reloadData()
+        
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setUpItems()
+        myTableView.reloadData()
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
     
     private func setUpItems() {
         // Fruits
-        currentItems.append([SupermarketItem(quantity:0, price:30, name: "kiwi", id:1), SupermarketItem(quantity:0, price:45, name: "Watermelon", id:2), SupermarketItem(quantity:0, price:45, name: "Grapefruit", id:3)])
+        //currentItems.append([SupermarketItem(quantity:0, price:30, name: "kiwi", id:1), SupermarketItem(quantity:0, price:45, name: "Watermelon", id:2), SupermarketItem(quantity:0, price:45, name: "Grapefruit", id:3)])
         // Veggies
-        currentItems.append([SupermarketItem(quantity:0, price:30, name: "Avocado", id:4),SupermarketItem(quantity:0, price:30, name: "Cucumber", id:5)])
+        //currentItems.append([SupermarketItem(quantity:0, price:30, name: "Avocado", id:4),SupermarketItem(quantity:0, price:30, name: "Cucumber", id:5)])
         // Fruits
+        
+        apiManager.obtainProducts { (products, error) in
+            if let products = products{
+                //self.prueba = products
+                for product in products{
+                    if product.category=="fruits"{
+                        self.fruits.append(product)
+                    }
+                    if product.category=="dairy"{
+                        self.dairys.append(product)
+                    }
+                    else{
+                        self.veggies.append(product)
+                    }
+                }
+                self.currentItems.append(self.fruits)
+                self.currentItems.append(self.veggies)
+                self.currentItems.append(self.dairys)
+                //dairy
+                self.myTableView.reloadData()
+            }
+            if let error = error {
+                let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Accept",style: .default, handler: nil))
+                self.present(alert, animated: true)
+            }
+        }
     }
+    
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         
@@ -63,7 +122,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         if searching {
             return searchedItem[section].count
         } else {
-            return currentItems[section].count
+            return currentItems.count
         }
     }
      func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -86,8 +145,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
  
     
     public func numberOfSections(in tableView: UITableView) -> Int{
-        //return(sections.count)
-        return 2
+        return(sections.count)
     }
     
     @objc func changeImage(){
@@ -106,29 +164,13 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
     
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        searchBar.delegate = self
-        myTableView.delegate = self
-        myTableView.dataSource = self
-        pageView.numberOfPages=imgArr.count
-        pageView.currentPage=0
-        DispatchQueue.main.async {
-            self.timer=Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(self.changeImage), userInfo: nil, repeats: true)
-        }
-        setUpItems()
-        myTableView.reloadData()
 
-    }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        myTableView.reloadData()
+    @IBAction func ClickCartButton(_ sender: Any) {
+        self.performSegue(withIdentifier: "SecondViewSegue", sender: self)
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func CartButton(_ sender: UIBarButtonItem) {
+        self.performSegue(withIdentifier: "SecondViewSegue", sender: self)
     }
 }
 
@@ -178,7 +220,7 @@ extension ViewController: UISearchBarDelegate {
             searching = false
             myTableView.reloadData()
         }else{
-            searchedItem =  [currentItems[0].filter({$0.name.lowercased().prefix(searchText.count) == searchText.lowercased()}), currentItems[1].filter({$0.name.lowercased().prefix(searchText.count) == searchText.lowercased()}) ]
+            searchedItem =  [currentItems[0].filter({$0.name!.lowercased().prefix(searchText.count) == searchText.lowercased()}), currentItems[1].filter({$0.name!.lowercased().prefix(searchText.count) == searchText.lowercased()}) ]
             searching = true
             myTableView.reloadData()
         }

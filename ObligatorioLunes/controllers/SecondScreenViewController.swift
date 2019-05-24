@@ -17,11 +17,29 @@ class SecondScreenViewController: UIViewController, UICollectionViewDelegate,UIC
     @IBOutlet weak var picker: UIPickerView!
     
     let pickerData = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-    var itemPickerSelected: Int?
+    var itemPickerSelected: Int = -1
     let untis=0
     var elements=[SupermarketItem]()
     var totalPrice: Double = 0
+    var quantPiker: Int?
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        ChechoutButton.layer.cornerRadius=10
+        // Connect data:
+        self.picker.delegate = self
+        self.picker.dataSource = self
+        picker.isHidden = true
+        picker.showsSelectionIndicator = true
+        
+    }
+    
+    
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -35,12 +53,20 @@ class SecondScreenViewController: UIViewController, UICollectionViewDelegate,UIC
         return String(pickerData[row])
     }
     
-    // Capture the picker view selection
-    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        // This method is triggered whenever the user makes a change to the picker selection.
-        // The parameter named row and component represents what was selected.
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        quantPiker=pickerData[row]
+        picker.isHidden = true
+        //elements[row].quantity=quantPiker!
+        for x in 0..<elements.count{
+            if elements[x].id==itemPickerSelected{
+                elements[x].quantity=quantPiker!
+                print(elements[x].name)
+            }
+
+        }
+        SecondView.reloadData()
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return elements.count
     }
@@ -49,7 +75,8 @@ class SecondScreenViewController: UIViewController, UICollectionViewDelegate,UIC
         guard let cellSecondView=collectionView.dequeueReusableCell(withReuseIdentifier: "cellSecondView", for: indexPath) as? ViewControllerSeconViewCell else { return UICollectionViewCell()}
        
         cellSecondView.item = elements[indexPath.row]
-        
+        //itemPickerSelected=cellSecondView.item.id
+
         for element in elements{
             let itemPrice = Double(element.quantity) * Double(element.price)
             totalPrice = totalPrice + itemPrice
@@ -66,15 +93,22 @@ class SecondScreenViewController: UIViewController, UICollectionViewDelegate,UIC
     
     //Atencion
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        for element in elements{
-            let index = pickerData.index(of: element.quantity)
-            picker.selectRow(index!, inComponent: 0, animated: false)
-            picker.isHidden = false
-        }
+        //let index = pickerData.index(of: elements[itemPickerSelected].id)
+        //picker.selectRow(index!, inComponent: 0, animated: false)
+        let cell = SecondView.cellForItem(at: indexPath) as! ViewControllerSeconViewCell
+        itemPickerSelected=cell.item.id
+        picker.isHidden = false
        
 
     }
 
+    func indexAlert(alert: UIAlertAction!){
+        for element in elements{
+            element.clean()
+        }
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     @IBAction func CheckOutButtonAction(_ sender: Any) {
         let alert = UIAlertController(title: "Successful", message: "Congratulation for purchase in the Shop",preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Accept",style: .default, handler: indexAlert))
@@ -86,28 +120,7 @@ class SecondScreenViewController: UIViewController, UICollectionViewDelegate,UIC
     
 
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        ChechoutButton.layer.cornerRadius=10
-        // Connect data:
-        self.picker.delegate = self
-        self.picker.dataSource = self
-        picker.isHidden = true
-        picker.showsSelectionIndicator = true
 
-      
-    }
-    
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    func indexAlert(alert: UIAlertAction!){
-        for element in elements{
-            element.clean()
-        }
-        self.navigationController?.popViewController(animated: true)
-    }
+
     
 }

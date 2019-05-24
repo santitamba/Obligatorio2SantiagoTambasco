@@ -8,8 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		6C72E905FF8B9308A4B23652 /* Pods_ObligatorioLunes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97436ABF7CBD6589DF33C17D /* Pods_ObligatorioLunes.framework */; };
+		B40278F322962301005A5691 /* CustomDateTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40278F222962301005A5691 /* CustomDateTransform.swift */; };
+		B40278F522962581005A5691 /* SuperItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40278F422962581005A5691 /* SuperItem.swift */; };
+		B40278F7229626A7005A5691 /* Banners.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40278F6229626A7005A5691 /* Banners.swift */; };
+		B40278F922962732005A5691 /* CartItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40278F822962732005A5691 /* CartItem.swift */; };
+		B40278FD22962866005A5691 /* Purchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40278FC22962866005A5691 /* Purchase.swift */; };
+		B40278FF2296296A005A5691 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40278FE2296296A005A5691 /* ApiManager.swift */; };
 		B404AA61228E2FB500E6085B /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B404AA60228E2FB500E6085B /* AuthenticationManager.swift */; };
 		B404AA63228E2FC200E6085B /* AuthenticationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B404AA62228E2FC200E6085B /* AuthenticationResponse.swift */; };
+		B405D47822976F0A0076ACAC /* ProductCart.swift in Sources */ = {isa = PBXBuildFile; fileRef = B405D47722976F0A0076ACAC /* ProductCart.swift */; };
+		B405D47A2297706E0076ACAC /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = B405D4792297706E0076ACAC /* Cart.swift */; };
 		B43AC5F622826CEA00AC0CBB /* ViewControllerSeconViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43AC5F522826CEA00AC0CBB /* ViewControllerSeconViewCell.swift */; };
 		B4BC843F2280ED2A003A52D9 /* SecondScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BC843E2280ED2A003A52D9 /* SecondScreenViewController.swift */; };
 		B4E6A2542277EE5400862A64 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E6A2532277EE5400862A64 /* AppDelegate.swift */; };
@@ -24,8 +32,16 @@
 /* Begin PBXFileReference section */
 		97436ABF7CBD6589DF33C17D /* Pods_ObligatorioLunes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ObligatorioLunes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7C4F1431E8E9444E5DAE241 /* Pods-ObligatorioLunes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ObligatorioLunes.debug.xcconfig"; path = "Target Support Files/Pods-ObligatorioLunes/Pods-ObligatorioLunes.debug.xcconfig"; sourceTree = "<group>"; };
+		B40278F222962301005A5691 /* CustomDateTransform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomDateTransform.swift; sourceTree = "<group>"; };
+		B40278F422962581005A5691 /* SuperItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperItem.swift; sourceTree = "<group>"; };
+		B40278F6229626A7005A5691 /* Banners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Banners.swift; sourceTree = "<group>"; };
+		B40278F822962732005A5691 /* CartItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItem.swift; sourceTree = "<group>"; };
+		B40278FC22962866005A5691 /* Purchase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Purchase.swift; sourceTree = "<group>"; };
+		B40278FE2296296A005A5691 /* ApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
 		B404AA60228E2FB500E6085B /* AuthenticationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		B404AA62228E2FC200E6085B /* AuthenticationResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationResponse.swift; sourceTree = "<group>"; };
+		B405D47722976F0A0076ACAC /* ProductCart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCart.swift; sourceTree = "<group>"; };
+		B405D4792297706E0076ACAC /* Cart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
 		B43AC5F522826CEA00AC0CBB /* ViewControllerSeconViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerSeconViewCell.swift; sourceTree = "<group>"; };
 		B4BC843E2280ED2A003A52D9 /* SecondScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondScreenViewController.swift; sourceTree = "<group>"; };
 		B4E6A2502277EE5400862A64 /* ObligatorioLunes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ObligatorioLunes.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -64,6 +80,7 @@
 		B404AA64228E330300E6085B /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
+				B40278F222962301005A5691 /* CustomDateTransform.swift */,
 				B404AA60228E2FB500E6085B /* AuthenticationManager.swift */,
 				B404AA62228E2FC200E6085B /* AuthenticationResponse.swift */,
 			);
@@ -74,6 +91,12 @@
 			isa = PBXGroup;
 			children = (
 				B4EF3523227A343B0019A42A /* SupermarketItem.swift */,
+				B40278F422962581005A5691 /* SuperItem.swift */,
+				B40278F6229626A7005A5691 /* Banners.swift */,
+				B40278F822962732005A5691 /* CartItem.swift */,
+				B405D4792297706E0076ACAC /* Cart.swift */,
+				B405D47722976F0A0076ACAC /* ProductCart.swift */,
+				B40278FC22962866005A5691 /* Purchase.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -126,6 +149,7 @@
 			children = (
 				B4E6A2552277EE5400862A64 /* ViewController.swift */,
 				B4BC843E2280ED2A003A52D9 /* SecondScreenViewController.swift */,
+				B40278FE2296296A005A5691 /* ApiManager.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -265,13 +289,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B40278F322962301005A5691 /* CustomDateTransform.swift in Sources */,
 				B4E6A2562277EE5400862A64 /* ViewController.swift in Sources */,
+				B40278F522962581005A5691 /* SuperItem.swift in Sources */,
 				B4BC843F2280ED2A003A52D9 /* SecondScreenViewController.swift in Sources */,
 				B404AA61228E2FB500E6085B /* AuthenticationManager.swift in Sources */,
 				B43AC5F622826CEA00AC0CBB /* ViewControllerSeconViewCell.swift in Sources */,
+				B40278FD22962866005A5691 /* Purchase.swift in Sources */,
+				B405D47822976F0A0076ACAC /* ProductCart.swift in Sources */,
+				B40278FF2296296A005A5691 /* ApiManager.swift in Sources */,
 				B4E6A2542277EE5400862A64 /* AppDelegate.swift in Sources */,
+				B40278F922962732005A5691 /* CartItem.swift in Sources */,
+				B405D47A2297706E0076ACAC /* Cart.swift in Sources */,
 				B4EF3524227A343B0019A42A /* SupermarketItem.swift in Sources */,
 				B404AA63228E2FC200E6085B /* AuthenticationResponse.swift in Sources */,
+				B40278F7229626A7005A5691 /* Banners.swift in Sources */,
 				B4E6A2682278013900862A64 /* ViewControllerTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

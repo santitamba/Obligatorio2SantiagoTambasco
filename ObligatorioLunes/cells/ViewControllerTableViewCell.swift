@@ -17,29 +17,10 @@ class ViewControllerTableViewCell: UITableViewCell {
     @IBOutlet weak var myButtonAddFirst: UIButton!
     @IBOutlet var myButtonMinus: UIButton!
     @IBOutlet var myButtonPlus: UIButton!
-    var item : SupermarketItem!
+    //var item : SupermarketItem!
     @IBOutlet var stepperView: UIView!
-    
-    
-    @IBAction func myButtonAdd(_ sender: UIButton) {
-        changeStepperVisible()
-        item.quantity = 1
-        updateLabel()
-    }
-    @IBAction func myButtonPlus(_ sender: UIButton) {
-        item.quantity = item.quantity + 1
-        updateLabel()
-    }
-    @IBAction func myButtonMinus(_ sender: UIButton) {
-        if item.quantity == 1{
-            changeStepperInVisible()
-            item.quantity = item.quantity - 1
-        }
-        else{
-            item.quantity = item.quantity - 1
-            updateLabel()
-        }
-    }
+    var item : SuperItem!
+    var cartItem: CartItem!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -47,26 +28,6 @@ class ViewControllerTableViewCell: UITableViewCell {
         
     }
     
-    func configureCell() {
-        if item.quantity > 0 {
-            self.stepperView.isHidden = false
-            self.myButtonAddFirst.isHidden = true
-            updateLabel()
-        } else {
-            self.stepperView.isHidden = true
-            self.myButtonAddFirst.isHidden = false
-        }
-        
-        MyLabel.text = item.name
-        MyLabelPrice.text = "$ " + String(item.price)
-        myImage.image = UIImage(named: item.name)
-        myLabelQuant.text=String(item.quantity)
-    }
-    
-    func updateLabel() {
-        myLabelQuant.text = String(item.quantity)
-    }
-
     override func layoutSubviews() {
         super.layoutSubviews()
         myImage.layer.cornerRadius = myImage.frame.width / 2
@@ -75,9 +36,32 @@ class ViewControllerTableViewCell: UITableViewCell {
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
+    
+    func configureCell() {
+        //if cartItem.quantity! > 0 {
+            self.stepperView.isHidden = false
+            self.myButtonAddFirst.isHidden = true
+            updateLabel()
+        //} else {
+        //    self.stepperView.isHidden = true
+        //    self.myButtonAddFirst.isHidden = false
+        //}
+        
+        MyLabel.text = item.name
+        MyLabelPrice.text = "$ " + String(describing: item.price)
+        myImage.image = UIImage(named: item.name!)
+        //myLabelQuant.text=String(describing: cartItem.quantity)
+    }
+    
+    func updateLabel() {
+        myLabelQuant.text="1"
+        //myLabelQuant.text = String(describing: cartItem.quantity)
+    }
+
+
     
     public func changeStepperVisible() {
         self.stepperView.isHidden = !self.stepperView.isHidden
@@ -89,5 +73,25 @@ class ViewControllerTableViewCell: UITableViewCell {
         self.myButtonAddFirst.isHidden = false
     }
 
+    
+    @IBAction func myButtonAdd(_ sender: UIButton) {
+        changeStepperVisible()
+        cartItem.quantity = 1
+        updateLabel()
+    }
+    @IBAction func myButtonPlus(_ sender: UIButton) {
+        cartItem.quantity = cartItem.quantity! + 1
+        updateLabel()
+    }
+    @IBAction func myButtonMinus(_ sender: UIButton) {
+        if cartItem.quantity == 1{
+            changeStepperInVisible()
+            cartItem.quantity = cartItem.quantity! - 1
+        }
+        else{
+            cartItem.quantity = cartItem.quantity! - 1
+            updateLabel()
+        }
+    }
     
 }
