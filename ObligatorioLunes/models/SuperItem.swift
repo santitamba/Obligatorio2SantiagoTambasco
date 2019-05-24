@@ -28,8 +28,6 @@ var photoUrl : String? {
 }
 
 extension SuperItem: Mappable {
-    //init?(map: Map) { }
-    //mutating
     func mapping(map: Map){
         id <- map["id"]
         name <- map["name"]

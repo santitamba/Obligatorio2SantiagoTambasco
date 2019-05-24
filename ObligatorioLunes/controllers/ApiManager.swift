@@ -33,4 +33,21 @@ class ApiManager{
         }
     }
     
+    func obtainBanners(onCompletion: @escaping ([Banners]?,Error?) -> Void) {
+        let url = baseUrl + "promoted"
+        
+        Alamofire.request(url).responseArray { (response: DataResponse<[Banners]>)  in
+            switch response.result{
+            case .success:
+                //on completion y poner el error en nil y pasarle al sucess lo de abajo
+                onCompletion(response.result.value, nil)
+            case .failure(let error):
+                //oncompletion y poner el sucess en nil y pasarle el error
+                onCompletion(nil, error)
+                print(error)
+            }
+            //Luego en el view controler llamo ApiManager.shared.obtainProducts y deberia tener los productos
+        }
+    }
+    
 }

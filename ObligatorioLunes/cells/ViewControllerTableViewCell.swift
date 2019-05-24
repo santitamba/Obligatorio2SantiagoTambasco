@@ -41,6 +41,7 @@ class ViewControllerTableViewCell: UITableViewCell {
     }
     
     func configureCell() {
+        let url=URL(string:item.photoUrl!)
         //if cartItem.quantity! > 0 {
             self.stepperView.isHidden = false
             self.myButtonAddFirst.isHidden = true
@@ -51,8 +52,9 @@ class ViewControllerTableViewCell: UITableViewCell {
         //}
         
         MyLabel.text = item.name
-        MyLabelPrice.text = "$ " + String(describing: item.price)
-        myImage.image = UIImage(named: item.name!)
+        MyLabelPrice.text = "$ " + String(describing: item.price!)
+        myImage.kf.setImage(with: url)
+        //myImage.image = UIImage(named: item.name!)
         //myLabelQuant.text=String(describing: cartItem.quantity)
     }
     

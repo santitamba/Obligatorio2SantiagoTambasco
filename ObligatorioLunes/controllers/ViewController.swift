@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
@@ -21,10 +22,11 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
 
     
     
-    var imgArr=[UIImage(named:"Banner-1"),UIImage(named:"Banner-2"),UIImage(named:"Banner-3"),UIImage(named:"Banner-4")]
+    //var imgArr=[UIImage(named:"Banner-1"),UIImage(named:"Banner-2"),UIImage(named:"Banner-3"),UIImage(named:"Banner-4")]
+    var imgArr:[Banners] = []
     var timer=Timer()
     var counter=0
-    let sections=["fruits","veggies"]
+    let sections=["fruits","veggies","dairys"]
     var searchedItem = [[SuperItem]]()
     //var searchedItem = [[SupermarketItem]]()
     var searching = false
@@ -35,7 +37,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     var veggies = [SuperItem]()
     var dairys = [SuperItem]()
     let apiManager = ApiManager.shared
-    //var products = [Products]()
+    var products = [SuperItem]()
     
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -53,7 +55,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         searchBar.delegate = self
         myTableView.delegate = self
         myTableView.dataSource = self
-        pageView.numberOfPages=imgArr.count
+        //pageView.numberOfPages=imgArr.count
         pageView.currentPage=0
         DispatchQueue.main.async {
             self.timer=Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(self.changeImage), userInfo: nil, repeats: true)
@@ -68,12 +70,30 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setUpItems()
+        setUpBanners()
+        pageView.numberOfPages=imgArr.count
+        pageView.currentPage=0
         myTableView.reloadData()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    private func setUpBanners(){
+        apiManager.obtainBanners { (banners, error) in
+            if let banners = banners{
+                self.imgArr=banners
+                self.myTableView.reloadData()
+            }
+            if let error = error {
+                let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Accept",style: .default, handler: nil))
+                self.present(alert, animated: true)
+            }
+        }
+        
     }
     
     private func setUpItems() {
@@ -90,7 +110,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                     if product.category=="fruits"{
                         self.fruits.append(product)
                     }
-                    if product.category=="dairy"{
+                    else if product.category=="dairy"{
                         self.dairys.append(product)
                     }
                     else{
@@ -100,7 +120,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                 self.currentItems.append(self.fruits)
                 self.currentItems.append(self.veggies)
                 self.currentItems.append(self.dairys)
-                //dairy
                 self.myTableView.reloadData()
             }
             if let error = error {
@@ -149,6 +168,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
     
     @objc func changeImage(){
+        print("hola",imgArr.count)
         if counter<imgArr.count{
             let index=IndexPath.init(item: counter, section: 0)
             self.slideCollectionView.scrollToItem(at: index, at: .centeredHorizontally, animated: true)
@@ -161,6 +181,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             pageView.currentPage=counter
             counter=1
         }
+
     }
     
     
@@ -181,8 +202,10 @@ extension ViewController:UICollectionViewDelegate,UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cellSlide=collectionView.dequeueReusableCell(withReuseIdentifier: "cellSlide", for: indexPath)
+        let url=URL(string:imgArr[indexPath.row].photoUrl!)
         if let vc=cellSlide.viewWithTag(111) as? UIImageView{
-            vc.image=imgArr[indexPath.row]
+           // vc.image=imgArr[indexPath.row]
+            vc.kf.setImage(with: url)
         }
         else if let ab=cellSlide.viewWithTag(222) as? UIPageControl{
             ab.currentPage=indexPath.row
@@ -220,7 +243,7 @@ extension ViewController: UISearchBarDelegate {
             searching = false
             myTableView.reloadData()
         }else{
-            searchedItem =  [currentItems[0].filter({$0.name!.lowercased().prefix(searchText.count) == searchText.lowercased()}), currentItems[1].filter({$0.name!.lowercased().prefix(searchText.count) == searchText.lowercased()}) ]
+            searchedItem =  [currentItems[0].filter({$0.name!.lowercased().prefix(searchText.count) == searchText.lowercased()}), currentItems[1].filter({$0.name!.lowercased().prefix(searchText.count) == searchText.lowercased()}), currentItems[2].filter({$0.name!.lowercased().prefix(searchText.count) == searchText.lowercased()}) ]
             searching = true
             myTableView.reloadData()
         }
