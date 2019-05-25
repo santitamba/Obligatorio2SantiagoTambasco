@@ -56,10 +56,8 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         myTableView.delegate = self
         myTableView.dataSource = self
         //pageView.numberOfPages=imgArr.count
-        pageView.currentPage=0
-        DispatchQueue.main.async {
-            self.timer=Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(self.changeImage), userInfo: nil, repeats: true)
-        }
+        //pageView.currentPage=0
+
         //Este es el SetUp que comente para pasar a recibir por ws
         //setUpItems()
         myTableView.reloadData()
@@ -73,6 +71,9 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         setUpBanners()
         pageView.numberOfPages=imgArr.count
         pageView.currentPage=0
+        DispatchQueue.main.async {
+            self.timer=Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(self.changeImage), userInfo: nil, repeats: true)
+        }
         myTableView.reloadData()
     }
     
@@ -130,6 +131,9 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         }
     }
     
+    public func numberOfSections(in tableView: UITableView) -> Int{
+        return(sections.count)
+    }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         
@@ -163,9 +167,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
  
     
-    public func numberOfSections(in tableView: UITableView) -> Int{
-        return(sections.count)
-    }
+
     
     @objc func changeImage(){
         print("hola",imgArr.count)
@@ -195,8 +197,11 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
 }
 
+//Banner
 extension ViewController:UICollectionViewDelegate,UICollectionViewDataSource{
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        print(imgArr.count)
         return imgArr.count
     }
     
@@ -204,7 +209,7 @@ extension ViewController:UICollectionViewDelegate,UICollectionViewDataSource{
         let cellSlide=collectionView.dequeueReusableCell(withReuseIdentifier: "cellSlide", for: indexPath)
         let url=URL(string:imgArr[indexPath.row].photoUrl!)
         if let vc=cellSlide.viewWithTag(111) as? UIImageView{
-           // vc.image=imgArr[indexPath.row]
+            //vc.image=imgArr[indexPath.row]
             vc.kf.setImage(with: url)
         }
         else if let ab=cellSlide.viewWithTag(222) as? UIPageControl{
@@ -216,7 +221,7 @@ extension ViewController:UICollectionViewDelegate,UICollectionViewDataSource{
 }
 
 
-
+//Item Slide Layout
 extension ViewController:UICollectionViewDelegateFlowLayout{
     
     //Esto es para que el ancho y largo del item sea igual a mi collectionview
@@ -234,6 +239,8 @@ extension ViewController:UICollectionViewDelegateFlowLayout{
         return 0.0
     }
 }
+
+//SearchBar
 extension ViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
