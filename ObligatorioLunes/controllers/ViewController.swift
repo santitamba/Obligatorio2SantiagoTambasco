@@ -275,8 +275,6 @@ extension ViewController: UpdateCartDelegate {
     func remove(item: SuperItem) {
         cartItems = cartItems.filter {$0.item?.id != item.id}
         //cartItems.removeAll(where: { $0.item?.id == item.id})
-        //if let index = cartItems.index(of: $0.item?.id)
-        //cartItems.remove(at: index)
     }
     
 }

@@ -14,7 +14,14 @@ class ApiManager{
     static let shared = ApiManager()
     
     private let baseUrl = "https://us-central1-ucu-ios-api.cloudfunctions.net/"
-    private init(){}
+    var token : String?
+    
+    private init(){
+        AuthenticationManager.shared.authenticate { (authResponse) in
+            print(authResponse)
+            self.token = authResponse.token
+        }
+    }
     
     func obtainProducts(onCompletion: @escaping ([SuperItem]?,Error?) -> Void) {
         let url = baseUrl + "products"
@@ -47,6 +54,22 @@ class ApiManager{
                 print(error)
             }
             //Luego en el view controler llamo ApiManager.shared.obtainProducts y deberia tener los productos
+        }
+    }
+    
+    func obtainPurchases(onCompletion: @escaping ([Purchase]?, Error?) -> Void) {
+        let url =  baseUrl + "purchases"
+        let headers: HTTPHeaders = ["Authorization": "Bearer " + self.token!]
+        
+        Alamofire.request(url,method: .get, headers: headers)
+            .responseArray{(response: DataResponse<[Purchase]>) in
+                switch response.result {
+                case .success:
+                    onCompletion(response.result.value, nil)
+                case .failure(let error):
+                    onCompletion(nil, error)
+                    print(error)
+                }
         }
     }
     

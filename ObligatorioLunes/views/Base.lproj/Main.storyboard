@@ -229,6 +229,7 @@
                         <outlet property="searchBar" destination="bV2-xX-eep" id="IRd-2F-7qh"/>
                         <outlet property="slideCollectionView" destination="qw6-Vu-85U" id="YcP-8i-z8U"/>
                         <segue destination="I5C-Iy-Khm" kind="show" identifier="SecondViewSegue" id="4UC-HV-v51"/>
+                        <segue destination="ZEZ-fJ-9Om" kind="show" id="Duy-Ui-P1X"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -375,36 +376,39 @@
             </objects>
             <point key="canvasLocation" x="1516" y="-224"/>
         </scene>
-        <!--View Controller-->
+        <!--Purchase View Controller-->
         <scene sceneID="zln-dt-LSQ">
             <objects>
-                <viewController id="ZEZ-fJ-9Om" sceneMemberID="viewController">
+                <viewController id="ZEZ-fJ-9Om" customClass="PurchaseViewController" customModule="ObligatorioLunes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hAr-Z9-pmP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xhZ-Xs-MBL" userLabel="Purchase Table View">
-                                <rect key="frame" x="5" y="25" width="365" height="637"/>
+                                <rect key="frame" x="5" y="69" width="365" height="593"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellPurchase" id="su1-mB-fft" customClass="ViewControllerTableViewCell" customModule="ObligatorioLunes" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellPurchase" id="su1-mB-fft" customClass="ViewControllerPurchaseViewCellTableViewCell" customModule="ObligatorioLunes" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="365" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="su1-mB-fft" id="Pyx-bx-UvX">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="su1-mB-fft" id="Pyx-bx-UvX" customClass="ViewControllerPurchaseViewCellTableViewCell" customModule="ObligatorioLunes" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="365" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B7N-Vr-gJN">
                                                     <rect key="frame" x="314" y="7" width="46" height="30"/>
                                                     <state key="normal" title="Button"/>
+                                                    <connections>
+                                                        <action selector="ButtonPurchaseDetails:" destination="Hz6-Dt-REW" eventType="touchUpInside" id="7sh-xF-aXX"/>
+                                                    </connections>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6wq-OL-F0Q">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6wq-OL-F0Q" userLabel="LabelDate">
                                                     <rect key="frame" x="5" y="11" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fLU-vh-bO1">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fLU-vh-bO1" userLabel="LabelTotal">
                                                     <rect key="frame" x="161" y="12" width="42" height="20"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -420,6 +424,11 @@
                                                 <constraint firstItem="fLU-vh-bO1" firstAttribute="centerX" secondItem="Pyx-bx-UvX" secondAttribute="centerX" id="xWI-ns-dnh"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="cellPurchase" destination="B7N-Vr-gJN" id="5Ah-wn-hff"/>
+                                            <outlet property="labelDate" destination="6wq-OL-F0Q" id="LJt-Pd-4Qb"/>
+                                            <outlet property="labelTotal" destination="fLU-vh-bO1" id="nXE-Nn-FPc"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -437,8 +446,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vKD-BK-c5d"/>
                     </view>
+                    <connections>
+                        <outlet property="purchaseTableView" destination="xhZ-Xs-MBL" id="kpz-zy-Otr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YhY-AS-Uhj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Hz6-Dt-REW" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1437.5999999999999" y="500.59970014992507"/>
         </scene>

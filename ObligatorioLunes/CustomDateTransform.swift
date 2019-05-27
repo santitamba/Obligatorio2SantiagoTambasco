@@ -9,6 +9,7 @@
 import ObjectMapper
 
 class CustomDateTransform: TransformType {
+    static var shared = CustomDateTransform()
     typealias Object = Date
     typealias JSON = String
     
