@@ -19,6 +19,7 @@
 		B405D47822976F0A0076ACAC /* ProductCart.swift in Sources */ = {isa = PBXBuildFile; fileRef = B405D47722976F0A0076ACAC /* ProductCart.swift */; };
 		B405D47A2297706E0076ACAC /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = B405D4792297706E0076ACAC /* Cart.swift */; };
 		B43AC5F622826CEA00AC0CBB /* ViewControllerSeconViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43AC5F522826CEA00AC0CBB /* ViewControllerSeconViewCell.swift */; };
+		B4466BF1229B0FAB0097DDBE /* PurchaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4466BF0229B0FAB0097DDBE /* PurchaseViewController.swift */; };
 		B4BC843F2280ED2A003A52D9 /* SecondScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4BC843E2280ED2A003A52D9 /* SecondScreenViewController.swift */; };
 		B4E6A2542277EE5400862A64 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E6A2532277EE5400862A64 /* AppDelegate.swift */; };
 		B4E6A2562277EE5400862A64 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E6A2552277EE5400862A64 /* ViewController.swift */; };
@@ -43,6 +44,7 @@
 		B405D47722976F0A0076ACAC /* ProductCart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCart.swift; sourceTree = "<group>"; };
 		B405D4792297706E0076ACAC /* Cart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
 		B43AC5F522826CEA00AC0CBB /* ViewControllerSeconViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerSeconViewCell.swift; sourceTree = "<group>"; };
+		B4466BF0229B0FAB0097DDBE /* PurchaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseViewController.swift; sourceTree = "<group>"; };
 		B4BC843E2280ED2A003A52D9 /* SecondScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondScreenViewController.swift; sourceTree = "<group>"; };
 		B4E6A2502277EE5400862A64 /* ObligatorioLunes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ObligatorioLunes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4E6A2532277EE5400862A64 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 				B4E6A2552277EE5400862A64 /* ViewController.swift */,
 				B4BC843E2280ED2A003A52D9 /* SecondScreenViewController.swift */,
 				B40278FE2296296A005A5691 /* ApiManager.swift */,
+				B4466BF0229B0FAB0097DDBE /* PurchaseViewController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -292,6 +295,7 @@
 				B40278F322962301005A5691 /* CustomDateTransform.swift in Sources */,
 				B4E6A2562277EE5400862A64 /* ViewController.swift in Sources */,
 				B40278F522962581005A5691 /* SuperItem.swift in Sources */,
+				B4466BF1229B0FAB0097DDBE /* PurchaseViewController.swift in Sources */,
 				B4BC843F2280ED2A003A52D9 /* SecondScreenViewController.swift in Sources */,
 				B404AA61228E2FB500E6085B /* AuthenticationManager.swift in Sources */,
 				B43AC5F622826CEA00AC0CBB /* ViewControllerSeconViewCell.swift in Sources */,
@@ -442,9 +446,10 @@
 			baseConfigurationReference = A7C4F1431E8E9444E5DAE241 /* Pods-ObligatorioLunes.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 87N5UY27FA;
+				DEVELOPMENT_TEAM = S5BKPRD34X;
 				INFOPLIST_FILE = ObligatorioLunes/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Santiago.ObligatorioLunes;
@@ -460,9 +465,10 @@
 			baseConfigurationReference = B7BCBB7F7FD4BED120E7A0FE /* Pods-ObligatorioLunes.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 87N5UY27FA;
+				DEVELOPMENT_TEAM = S5BKPRD34X;
 				INFOPLIST_FILE = ObligatorioLunes/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Santiago.ObligatorioLunes;

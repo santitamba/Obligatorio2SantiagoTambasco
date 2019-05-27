@@ -114,13 +114,5 @@ class SecondScreenViewController: UIViewController, UICollectionViewDelegate,UIC
         alert.addAction(UIAlertAction(title: "Accept",style: .default, handler: indexAlert))
         self.present(alert, animated: true)
     }
-    @IBAction func BackButton(_ sender: Any) {
-        self.performSegue(withIdentifier: "FirstViewSegue", sender: self)
-    }
-    
-
-    
-
-
     
 }

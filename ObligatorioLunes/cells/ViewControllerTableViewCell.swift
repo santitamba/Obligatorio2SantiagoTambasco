@@ -21,6 +21,7 @@ class ViewControllerTableViewCell: UITableViewCell {
     @IBOutlet var stepperView: UIView!
     var item : SuperItem!
     var cartItem: CartItem!
+    var delegate: UpdateCartDelegate!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -42,14 +43,21 @@ class ViewControllerTableViewCell: UITableViewCell {
     
     func configureCell() {
         let url=URL(string:item.photoUrl!)
-        //if cartItem.quantity! > 0 {
-            self.stepperView.isHidden = false
-            self.myButtonAddFirst.isHidden = true
-            updateLabel()
-        //} else {
-        //    self.stepperView.isHidden = true
-        //    self.myButtonAddFirst.isHidden = false
-        //}
+         myLabelQuant.text = "0"
+        if let decoded = UserDefaults.standard.data(forKey: "CartItems"), let cartItems = NSKeyedUnarchiver.unarchiveObject(with: decoded) as? [CartItem] {
+            if let cartItem = cartItems.filter({$0.item?.id == item.id}).first {
+                let currentQty = cartItem.quantity ?? 0
+                if currentQty > 0 {
+                    myLabelQuant.text = String(currentQty)
+                    self.stepperView.isHidden = true
+                    self.myButtonAddFirst.isHidden = false
+                } else {
+                    self.stepperView.isHidden = true
+                    self.myButtonAddFirst.isHidden = false
+                }
+            }
+        }
+        
         
         MyLabel.text = item.name
         MyLabelPrice.text = "$ " + String(describing: item.price!)
@@ -58,9 +66,22 @@ class ViewControllerTableViewCell: UITableViewCell {
         //myLabelQuant.text=String(describing: cartItem.quantity)
     }
     
-    func updateLabel() {
-        myLabelQuant.text="1"
-        //myLabelQuant.text = String(describing: cartItem.quantity)
+    func updateLabel(add: Bool) {
+        var current = getCurrentQty()
+        if add {
+            current = current + 1
+        } else {
+             current = current - 1
+        }
+        myLabelQuant.text = String(current)
+    }
+    
+    func getCurrentQty() -> Int {
+        if let currentQty = Int(myLabelQuant.text ?? "0") {
+            return currentQty
+        } else {
+            return 0
+        }
     }
 
 
@@ -78,22 +99,21 @@ class ViewControllerTableViewCell: UITableViewCell {
     
     @IBAction func myButtonAdd(_ sender: UIButton) {
         changeStepperVisible()
-        cartItem.quantity = 1
-        updateLabel()
+        delegate.add(item: item)
+        updateLabel(add: true)
     }
     @IBAction func myButtonPlus(_ sender: UIButton) {
-        cartItem.quantity = cartItem.quantity! + 1
-        updateLabel()
+        delegate.add(item: item)
+        updateLabel(add: true)
     }
     @IBAction func myButtonMinus(_ sender: UIButton) {
-        if cartItem.quantity == 1{
+        let current = getCurrentQty()
+        if current == 1 {
             changeStepperInVisible()
-            cartItem.quantity = cartItem.quantity! - 1
+        } else {
+            updateLabel(add: false)
         }
-        else{
-            cartItem.quantity = cartItem.quantity! - 1
-            updateLabel()
-        }
+        delegate.remove(item: item)
     }
     
 }
