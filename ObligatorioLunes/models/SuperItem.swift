@@ -16,7 +16,7 @@ var category : String?
 var photoUrl : String? {
     didSet{
         guard let photoUrl = photoUrl else{
-            self.photoUrl="https://upload.wikimedia.org/wikipedia/commons/f/f2/Escudo_de_Pe%C3%B1arol.svg"
+            self.photoUrl="https://static.thenounproject.com/png/340719-200.png"
             return
         }
     }
