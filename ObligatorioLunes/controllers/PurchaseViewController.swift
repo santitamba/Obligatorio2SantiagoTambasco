@@ -64,7 +64,7 @@ class PurchaseViewController: UIViewController,UITableViewDataSource, UITableVie
             }
             
             self.purchases = purchases
-            //self.slideCollectionView.reloadData()
+            self.purchaseTableView.reloadData()
             
         }
         

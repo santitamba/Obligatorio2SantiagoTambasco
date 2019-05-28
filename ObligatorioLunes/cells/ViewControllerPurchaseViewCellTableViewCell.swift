@@ -30,8 +30,8 @@ class ViewControllerPurchaseViewCellTableViewCell: UITableViewCell {
     
     
     func configureCell() {
-        labelDate.text = CustomDateTransform.shared.transformToJSON(purchase.date)
-        labelTotal.text = "2"
+        labelDate.text = String(describing: purchase.date)//"1"//CustomDateTransform.shared.transformToJSON(purchase.date)
+        labelTotal.text = "1"
     }
     
     @IBAction func ButtonPurchaseDetails(_ sender: Any) {

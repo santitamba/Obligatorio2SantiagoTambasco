@@ -15,10 +15,10 @@ class ApiManager{
     
     private let baseUrl = "https://us-central1-ucu-ios-api.cloudfunctions.net/"
     var token : String?
-    
+   
     private init(){
         AuthenticationManager.shared.authenticate { (authResponse) in
-            print(authResponse)
+            print("Bearer ",authResponse)
             self.token = authResponse.token
         }
     }
@@ -59,7 +59,7 @@ class ApiManager{
     
     func obtainPurchases(onCompletion: @escaping ([Purchase]?, Error?) -> Void) {
         let url =  baseUrl + "purchases"
-        let headers: HTTPHeaders = ["Authorization": "Bearer " + self.token!]
+        let headers: HTTPHeaders = ["Authorization": "Bearer " + "123"]//self.token!]
         
         Alamofire.request(url,method: .get, headers: headers)
             .responseArray{(response: DataResponse<[Purchase]>) in
@@ -75,7 +75,7 @@ class ApiManager{
     
     func postPurchase(cart: [CartItem], onCompletion: @escaping (Bool, String?) -> Void) {
         let url =  baseUrl + "checkout"
-        let headers: HTTPHeaders = ["Authorization": "Bearer " + self.token!]
+        let headers: HTTPHeaders = ["Authorization": "Bearer " + "123"]//self.token!]
         
         var param = Parameters()
         param.updateValue(cart.toJSON(), forKey: "cart")

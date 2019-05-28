@@ -128,6 +128,9 @@ class ViewController: UIViewController {
         slideCollectionView.scrollToItem(at: index, at: .centeredHorizontally, animated: true)
 
     }
+
+    
+    
     
     @IBAction func ClickCartButton(_ sender: Any) {
         self.performSegue(withIdentifier: "SecondViewSegue", sender: self)
@@ -150,6 +153,7 @@ class ViewController: UIViewController {
             }
         }
     }
+    
 }
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {

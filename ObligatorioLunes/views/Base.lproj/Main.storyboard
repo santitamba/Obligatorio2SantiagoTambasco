@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="mjI-6Q-L55">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="mjI-6Q-L55">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -209,6 +209,16 @@
                     </view>
                     <navigationItem key="navigationItem" title="Shop" id="xw6-L5-iqt">
                         <barButtonItem key="backBarButtonItem" title=" " id="VHR-oQ-FOF"/>
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="qAq-df-di9">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="aNk-gX-nrf">
+                                <rect key="frame" x="16" y="0.0" width="50" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="icon-purchase"/>
+                                <connections>
+                                    <segue destination="ZEZ-fJ-9Om" kind="show" id="zvT-7p-aAI"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="J27-fM-kir">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Sgr-6C-dxM">
                                 <rect key="frame" x="335" y="11" width="24" height="22"/>
@@ -416,14 +426,16 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="6wq-OL-F0Q" firstAttribute="leading" secondItem="Pyx-bx-UvX" secondAttribute="leading" constant="5" id="8UE-Mi-wdp"/>
+                                                <constraint firstItem="6wq-OL-F0Q" firstAttribute="centerY" secondItem="fLU-vh-bO1" secondAttribute="centerY" id="67g-iF-Go8"/>
                                                 <constraint firstItem="fLU-vh-bO1" firstAttribute="centerY" secondItem="Pyx-bx-UvX" secondAttribute="centerY" id="HD2-QB-NlG"/>
-                                                <constraint firstAttribute="trailing" secondItem="B7N-Vr-gJN" secondAttribute="trailing" constant="5" id="Hmb-lL-pNr"/>
-                                                <constraint firstItem="B7N-Vr-gJN" firstAttribute="centerY" secondItem="Pyx-bx-UvX" secondAttribute="centerY" id="eRI-e7-HgY"/>
-                                                <constraint firstItem="6wq-OL-F0Q" firstAttribute="centerY" secondItem="Pyx-bx-UvX" secondAttribute="centerY" id="iTf-xe-Wp0"/>
+                                                <constraint firstItem="B7N-Vr-gJN" firstAttribute="centerY" secondItem="fLU-vh-bO1" secondAttribute="centerY" id="oxY-MF-ZGe"/>
                                                 <constraint firstItem="fLU-vh-bO1" firstAttribute="centerX" secondItem="Pyx-bx-UvX" secondAttribute="centerX" id="xWI-ns-dnh"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="B7N-Vr-gJN" secondAttribute="trailing" constant="5" id="0uN-av-fUF"/>
+                                            <constraint firstItem="6wq-OL-F0Q" firstAttribute="leading" secondItem="su1-mB-fft" secondAttribute="leading" constant="5" id="shm-Is-3Gk"/>
+                                        </constraints>
                                         <connections>
                                             <outlet property="cellPurchase" destination="B7N-Vr-gJN" id="5Ah-wn-hff"/>
                                             <outlet property="labelDate" destination="6wq-OL-F0Q" id="LJt-Pd-4Qb"/>
@@ -479,5 +491,9 @@
         <image name="icon-cart" width="24" height="21"/>
         <image name="icon-minus" width="8" height="3"/>
         <image name="icon-plus" width="12" height="12"/>
+        <image name="icon-purchase" width="24" height="24"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Duy-Ui-P1X"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -60,7 +60,6 @@ class SecondScreenViewController: UIViewController, UICollectionViewDelegate,UIC
         for x in 0..<elements.count{
             if elements[x].productId==itemPickerSelected{
                 elements[x].quantity=quantPiker!
-                print(elements[x].quantity)
             }
 
         }
