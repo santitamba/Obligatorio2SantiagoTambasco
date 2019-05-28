@@ -32,7 +32,8 @@ class ViewController: UIViewController {
     var searchedItem = [[SuperItem]]()
     //var searchedItem = [[SupermarketItem]]()
     var searching = false
-    var items = [[SupermarketItem]]()
+    //var items = [[SupermarketItem]]()
+    var items = [[SuperItem]]()
     //var currentItems = [[SupermarketItem]]()
     var currentItems = [[SuperItem]]()
     var fruits = [SuperItem]()
@@ -138,7 +139,9 @@ class ViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier=="SecondViewSegue"{
-            if let controller=segue.destination as? SecondScreenViewController{
+            if let controller = segue.destination as? SecondScreenViewController{
+                controller.elements=SessionManager.cartItems!
+                //controller.elements = currentItems
                 //var tempElements0 = currentItems[0].filter({$0.quantity > 0 }) //Le paso todo lo de la seccion 0
                 //let tempElements1 = currentItems[1].filter({$0.quantity > 0 })//Le paso todo lo de la seccion 1
                 //tempElements0.append(contentsOf: tempElements1)
@@ -262,19 +265,21 @@ extension ViewController: UISearchBarDelegate {
 extension ViewController: UpdateCartDelegate {
     
     func add(item: SuperItem) {
-        if var current = cartItems.filter({$0.item?.id == item.id}).first {
-            current.quantity = current.quantity ?? 0 + 1
+        
+        var currentItems = SessionManager.cartItems ?? []
+        
+        if var current = currentItems.filter({$0.productId == item.id}).first{
+            current.quantity = (current.quantity ?? 0) + 1
         } else {
-            var newItem = CartItem()
-            newItem.item = item
-            newItem.quantity = 1
-            cartItems.append(newItem)
+            let newItem = CartItem(productId: item.id)
+            currentItems.append(newItem)
         }
+        
+        SessionManager.cartItems = currentItems
     }
     
     func remove(item: SuperItem) {
-        cartItems = cartItems.filter {$0.item?.id != item.id}
-        //cartItems.removeAll(where: { $0.item?.id == item.id})
+        SessionManager.cartItems = SessionManager.cartItems?.filter {$0.productId != item.id}
     }
     
 }

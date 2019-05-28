@@ -15,7 +15,7 @@ class ViewControllerSeconViewCell: UICollectionViewCell{
     @IBOutlet var itemSubtitle: UILabel!
     @IBOutlet var itemPrice: UILabel!
     @IBOutlet var itemTitle: UILabel!
-    var item : SupermarketItem!
+    var item : SuperItem!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,11 +23,11 @@ class ViewControllerSeconViewCell: UICollectionViewCell{
     
     func configure() {
         itemTitle.text = item.name
-        itemPrice.text = "$ " + String(item.price * item.quantity)
+        itemPrice.text = "$ " + String(item.price! * Double(item.quantity!))
         
-        itemSubtitle.text = String(item.quantity)
+        itemSubtitle.text = String(describing: item.quantity!)
         + " units"
-        imageView.image = UIImage(named: item.name)
+        imageView.image = UIImage(named: item.name!)
         
     }
     

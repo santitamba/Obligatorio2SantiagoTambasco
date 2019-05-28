@@ -10,10 +10,13 @@ import Foundation
 import ObjectMapper
 
 class Cart: Mappable {
+    
     var cart: [CartItem]?
     
     required init?(map: Map) {
     }
+
+    init(){}
     
     func mapping(map: Map) {
         cart <- map["cart"]

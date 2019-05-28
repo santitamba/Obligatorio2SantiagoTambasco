@@ -73,4 +73,26 @@ class ApiManager{
         }
     }
     
+    func postPurchase(cart: [CartItem], onCompletion: @escaping (Bool, String?) -> Void) {
+        let url =  baseUrl + "checkout"
+        let headers: HTTPHeaders = ["Authorization": "Bearer " + self.token!]
+        
+        var param = Parameters()
+        param.updateValue(cart.toJSON(), forKey: "cart")
+        
+        Alamofire.request(url, method: .post, parameters: param, encoding: JSONEncoding.default, headers: headers).response { response in
+            guard let error = response.error else {
+                if response.response?.statusCode == 200 {
+                    onCompletion(true, nil)
+                } else {
+                    onCompletion(false, "Ups, encontramos un error por favor vuelva a intentarlo")
+                }
+                return
+            }
+            print(error)
+            onCompletion(false, error.localizedDescription)
+            return
+        }
+    }
+    
 }

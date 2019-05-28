@@ -43,27 +43,23 @@ class ViewControllerTableViewCell: UITableViewCell {
     
     func configureCell() {
         let url=URL(string:item.photoUrl!)
-         myLabelQuant.text = "0"
-        if let decoded = UserDefaults.standard.data(forKey: "CartItems"), let cartItems = NSKeyedUnarchiver.unarchiveObject(with: decoded) as? [CartItem] {
-            if let cartItem = cartItems.filter({$0.item?.id == item.id}).first {
-                let currentQty = cartItem.quantity ?? 0
-                if currentQty > 0 {
-                    myLabelQuant.text = String(currentQty)
-                    self.stepperView.isHidden = true
-                    self.myButtonAddFirst.isHidden = false
-                } else {
-                    self.stepperView.isHidden = true
-                    self.myButtonAddFirst.isHidden = false
-                }
+        
+        self.stepperView.isHidden = true
+        self.myButtonAddFirst.isHidden = false
+        self.myLabelQuant.text = "0"
+        
+        if let cartItem = SessionManager.cartItems?.filter({$0.productId == item.id}).first {
+            let currentQty = cartItem.quantity ?? 0
+            if currentQty > 0 {
+                myLabelQuant.text = String(currentQty)
+                self.stepperView.isHidden = false
+                self.myButtonAddFirst.isHidden = true
             }
         }
-        
         
         MyLabel.text = item.name
         MyLabelPrice.text = "$ " + String(describing: item.price!)
         myImage.kf.setImage(with: url)
-        //myImage.image = UIImage(named: item.name!)
-        //myLabelQuant.text=String(describing: cartItem.quantity)
     }
     
     func updateLabel(add: Bool) {
@@ -83,8 +79,6 @@ class ViewControllerTableViewCell: UITableViewCell {
             return 0
         }
     }
-
-
     
     public func changeStepperVisible() {
         self.stepperView.isHidden = !self.stepperView.isHidden

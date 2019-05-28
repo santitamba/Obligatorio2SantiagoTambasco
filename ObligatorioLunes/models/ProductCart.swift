@@ -8,6 +8,7 @@
 
 import Foundation
 import ObjectMapper
+
 class ProductCart{
     var product : SuperItem?
     var quantity : Int?

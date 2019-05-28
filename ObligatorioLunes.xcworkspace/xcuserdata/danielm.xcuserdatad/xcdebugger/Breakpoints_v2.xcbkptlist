@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ObligatorioLunes/controllers/ViewController.swift"
-            timestampString = "580526165.63642"
+            timestampString = "580697732.76329"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "98"
@@ -26,12 +26,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ObligatorioLunes/controllers/ViewController.swift"
-            timestampString = "580526165.636506"
+            timestampString = "580697732.763602"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "198"
             endingLineNumber = "198"
-            landmarkName = "collectionView(_:cellForItemAt:)"
+            landmarkName = "collectionView(_:numberOfItemsInSection:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -42,13 +42,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ObligatorioLunes/controllers/ViewController.swift"
-            timestampString = "580526165.636577"
+            timestampString = "580697732.763664"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "260"
             endingLineNumber = "260"
-            landmarkName = "add(item:)"
-            landmarkType = "7">
+            landmarkName = "ViewController"
+            landmarkType = "21">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -58,13 +58,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ObligatorioLunes/controllers/ViewController.swift"
-            timestampString = "580526165.636628"
+            timestampString = "580697732.7637171"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "262"
             endingLineNumber = "262"
-            landmarkName = "add(item:)"
-            landmarkType = "7">
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -74,11 +74,91 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ObligatorioLunes/controllers/ViewController.swift"
-            timestampString = "580526165.636677"
+            timestampString = "580697732.7637661"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "261"
             endingLineNumber = "261"
+            landmarkName = "ViewController"
+            landmarkType = "21">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ObligatorioLunes/cells/ViewControllerTableViewCell.swift"
+            timestampString = "580697732.763815"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
+            landmarkName = "updateLabel(add:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ObligatorioLunes/cells/ViewControllerTableViewCell.swift"
+            timestampString = "580697732.764003"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "configureCell()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ObligatorioLunes.ViewControllerTableViewCell.configureCell() -&gt; ()"
+                  moduleName = "ObligatorioLunes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/danielm/Downloads/Obligatorio2SantiagoTambasco-master-2/ObligatorioLunes/cells/ViewControllerTableViewCell.swift"
+                  timestampString = "580695447.255939"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "47"
+                  endingLineNumber = "47"
+                  offsetFromSymbolStart = "803">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (ObligatorioLunes.CartItem) -&gt; Swift.Bool in ObligatorioLunes.ViewControllerTableViewCell.configureCell() -&gt; ()"
+                  moduleName = "ObligatorioLunes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/danielm/Downloads/Obligatorio2SantiagoTambasco-master-2/ObligatorioLunes/cells/ViewControllerTableViewCell.swift"
+                  timestampString = "580695447.2577519"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "47"
+                  endingLineNumber = "47"
+                  offsetFromSymbolStart = "37">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ObligatorioLunes/controllers/ViewController.swift"
+            timestampString = "580697732.7640539"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "266"
+            endingLineNumber = "266"
             landmarkName = "add(item:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -90,13 +170,61 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ObligatorioLunes/cells/ViewControllerTableViewCell.swift"
-            timestampString = "580526165.636773"
+            timestampString = "580697732.764099"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
-            landmarkName = "updateLabel(add:)"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "configureCell()"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ObligatorioLunes/controllers/SecondScreenViewController.swift"
+            timestampString = "580697732.7641439"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "116"
+            endingLineNumber = "116"
+            landmarkName = "CheckOutButtonAction(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ObligatorioLunes.SecondScreenViewController.CheckOutButtonAction(Any) -&gt; ()"
+                  moduleName = "ObligatorioLunes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/danielm/Downloads/Obligatorio2SantiagoTambasco-master-2/ObligatorioLunes/controllers/SecondScreenViewController.swift"
+                  timestampString = "580697402.115243"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "116"
+                  endingLineNumber = "116"
+                  offsetFromSymbolStart = "148">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Bool, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in ObligatorioLunes.SecondScreenViewController.CheckOutButtonAction(Any) -&gt; ()"
+                  moduleName = "ObligatorioLunes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/danielm/Downloads/Obligatorio2SantiagoTambasco-master-2/ObligatorioLunes/controllers/SecondScreenViewController.swift"
+                  timestampString = "580697402.120258"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "117"
+                  endingLineNumber = "117"
+                  offsetFromSymbolStart = "95">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

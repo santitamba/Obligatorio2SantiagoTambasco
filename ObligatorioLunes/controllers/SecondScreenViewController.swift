@@ -19,7 +19,7 @@ class SecondScreenViewController: UIViewController, UICollectionViewDelegate,UIC
     let pickerData = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     var itemPickerSelected: Int = -1
     let untis=0
-    var elements=[SupermarketItem]()
+    var elements=[CartItem]()
     var totalPrice: Double = 0
     var quantPiker: Int?
 
@@ -58,9 +58,9 @@ class SecondScreenViewController: UIViewController, UICollectionViewDelegate,UIC
         picker.isHidden = true
         //elements[row].quantity=quantPiker!
         for x in 0..<elements.count{
-            if elements[x].id==itemPickerSelected{
+            if elements[x].productId==itemPickerSelected{
                 elements[x].quantity=quantPiker!
-                print(elements[x].name)
+                print(elements[x].quantity)
             }
 
         }
@@ -73,15 +73,34 @@ class SecondScreenViewController: UIViewController, UICollectionViewDelegate,UIC
         
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cellSecondView=collectionView.dequeueReusableCell(withReuseIdentifier: "cellSecondView", for: indexPath) as? ViewControllerSeconViewCell else { return UICollectionViewCell()}
-       
-        cellSecondView.item = elements[indexPath.row]
+        
+        //SessionManager.cartItems = SessionManager.cartItems?.filter {$0.productId != item.id}
+        //var currentItems = SessionManager.cartItems ?? []
+       // if var current = currentItems.filter({$0.productId == item.id}).first{
+        //    current.quantity = (current.quantity ?? 0) + 1
+        //} else {
+         //   let newItem = CartItem(productId: item.id)
+          //  currentItems.append(newItem)
+       // }
+        //SessionManager.cartItems = currentItems
+        var cartItems = SessionManager.cartItems
+        if var current = cartItems?.filter({$0.productId ==  cellSecondView.item.id}).first{
+            itemPickerSelected=cellSecondView.item.id!
+            let itemPrice = Double(current.quantity!) * cellSecondView.item.price!
+            totalPrice = totalPrice + itemPrice
+        }else{
+            print("hola")
+        }
+        
+        
+        //cellSecondView.item = elements[indexPath.row]
         //itemPickerSelected=cellSecondView.item.id
 
-        for element in elements{
-            let itemPrice = Double(element.quantity) * Double(element.price)
-            totalPrice = totalPrice + itemPrice
+        //for element in elements{
+         //   let itemPrice = Double(element.quantity!) * Double(element.price)
+          //  totalPrice = totalPrice + itemPrice
 
-        }
+        //}
         TotalPriceLabel.text = "$" + String(totalPrice)
         if elements.count>0{
             ChechoutButton.isEnabled=true
@@ -96,23 +115,35 @@ class SecondScreenViewController: UIViewController, UICollectionViewDelegate,UIC
         //let index = pickerData.index(of: elements[itemPickerSelected].id)
         //picker.selectRow(index!, inComponent: 0, animated: false)
         let cell = SecondView.cellForItem(at: indexPath) as! ViewControllerSeconViewCell
-        itemPickerSelected=cell.item.id
+        itemPickerSelected=cell.item.id!
         picker.isHidden = false
        
 
     }
 
     func indexAlert(alert: UIAlertAction!){
-        for element in elements{
-            element.clean()
-        }
+        SessionManager.deleteAllData()
         self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func CheckOutButtonAction(_ sender: Any) {
-        let alert = UIAlertController(title: "Successful", message: "Congratulation for purchase in the Shop",preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Accept",style: .default, handler: indexAlert))
-        self.present(alert, animated: true)
+        
+       
+        if let cart = SessionManager.cartItems {
+            ApiManager.shared.postPurchase(cart: cart) { (success, errorMessage) in
+                var title = "Error"
+                var message = errorMessage
+                var buttonTitle = "OK"
+                if success {
+                    title = "Successful"
+                    message = "Congratulation for purchase in the Shop"
+                    buttonTitle = "Accept"
+                }
+                let alert = UIAlertController(title: title, message: message,preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: buttonTitle,style: .default, handler: self.indexAlert))
+                self.present(alert, animated: true)
+            }
+        }
     }
     
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		667ECF59229CADEC00055449 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667ECF58229CADEC00055449 /* SessionManager.swift */; };
 		6C72E905FF8B9308A4B23652 /* Pods_ObligatorioLunes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97436ABF7CBD6589DF33C17D /* Pods_ObligatorioLunes.framework */; };
 		B40278F322962301005A5691 /* CustomDateTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40278F222962301005A5691 /* CustomDateTransform.swift */; };
 		B40278F522962581005A5691 /* SuperItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40278F422962581005A5691 /* SuperItem.swift */; };
@@ -28,10 +29,10 @@
 		B4E6A25B2277EE5400862A64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4E6A25A2277EE5400862A64 /* Assets.xcassets */; };
 		B4E6A25E2277EE5400862A64 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4E6A25C2277EE5400862A64 /* LaunchScreen.storyboard */; };
 		B4E6A2682278013900862A64 /* ViewControllerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E6A2672278013900862A64 /* ViewControllerTableViewCell.swift */; };
-		B4EF3524227A343B0019A42A /* SupermarketItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4EF3523227A343B0019A42A /* SupermarketItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		667ECF58229CADEC00055449 /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 		97436ABF7CBD6589DF33C17D /* Pods_ObligatorioLunes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ObligatorioLunes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7C4F1431E8E9444E5DAE241 /* Pods-ObligatorioLunes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ObligatorioLunes.debug.xcconfig"; path = "Target Support Files/Pods-ObligatorioLunes/Pods-ObligatorioLunes.debug.xcconfig"; sourceTree = "<group>"; };
 		B40278F222962301005A5691 /* CustomDateTransform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomDateTransform.swift; sourceTree = "<group>"; };
@@ -56,7 +57,6 @@
 		B4E6A25D2277EE5400862A64 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B4E6A25F2277EE5400862A64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B4E6A2672278013900862A64 /* ViewControllerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerTableViewCell.swift; sourceTree = "<group>"; };
-		B4EF3523227A343B0019A42A /* SupermarketItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupermarketItem.swift; sourceTree = "<group>"; };
 		B7BCBB7F7FD4BED120E7A0FE /* Pods-ObligatorioLunes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ObligatorioLunes.release.xcconfig"; path = "Target Support Files/Pods-ObligatorioLunes/Pods-ObligatorioLunes.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -81,20 +81,28 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		B404AA64228E330300E6085B /* Authentication */ = {
+		B403C0DA229CD154002F307D /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				667ECF58229CADEC00055449 /* SessionManager.swift */,
+				B40278FE2296296A005A5691 /* ApiManager.swift */,
+			);
+			name = Managers;
+			sourceTree = "<group>";
+		};
+		B404AA64228E330300E6085B /* ProfesorMethod */ = {
 			isa = PBXGroup;
 			children = (
 				B40278F222962301005A5691 /* CustomDateTransform.swift */,
 				B404AA60228E2FB500E6085B /* AuthenticationManager.swift */,
 				B404AA62228E2FC200E6085B /* AuthenticationResponse.swift */,
 			);
-			name = Authentication;
+			name = ProfesorMethod;
 			sourceTree = "<group>";
 		};
 		B43AC5F42282582400AC0CBB /* models */ = {
 			isa = PBXGroup;
 			children = (
-				B4EF3523227A343B0019A42A /* SupermarketItem.swift */,
 				B40278F422962581005A5691 /* SuperItem.swift */,
 				B40278F6229626A7005A5691 /* Banners.swift */,
 				B40278F822962732005A5691 /* CartItem.swift */,
@@ -108,6 +116,7 @@
 		B4E6A2472277EE5400862A64 = {
 			isa = PBXGroup;
 			children = (
+				B403C0DA229CD154002F307D /* Managers */,
 				B4E6A2522277EE5400862A64 /* ObligatorioLunes */,
 				B4E6A2512277EE5400862A64 /* Products */,
 				9F423693D215749CA85CB198 /* Pods */,
@@ -126,7 +135,7 @@
 		B4E6A2522277EE5400862A64 /* ObligatorioLunes */ = {
 			isa = PBXGroup;
 			children = (
-				B404AA64228E330300E6085B /* Authentication */,
+				B404AA64228E330300E6085B /* ProfesorMethod */,
 				B4F0FFD62282721F006C1471 /* controllers */,
 				B4F0FFD72282722E006C1471 /* views */,
 				B43AC5F42282582400AC0CBB /* models */,
@@ -154,7 +163,6 @@
 			children = (
 				B4E6A2552277EE5400862A64 /* ViewController.swift */,
 				B4BC843E2280ED2A003A52D9 /* SecondScreenViewController.swift */,
-				B40278FE2296296A005A5691 /* ApiManager.swift */,
 				B40CAB67229B96760078C5D2 /* PurchaseViewController.swift */,
 			);
 			path = controllers;
@@ -298,6 +306,7 @@
 				B40CAB64229B95020078C5D2 /* ViewControllerPurchaseViewCellTableViewCell.swift in Sources */,
 				B40278F322962301005A5691 /* CustomDateTransform.swift in Sources */,
 				B4E6A2562277EE5400862A64 /* ViewController.swift in Sources */,
+				667ECF59229CADEC00055449 /* SessionManager.swift in Sources */,
 				B40278F522962581005A5691 /* SuperItem.swift in Sources */,
 				B4BC843F2280ED2A003A52D9 /* SecondScreenViewController.swift in Sources */,
 				B404AA61228E2FB500E6085B /* AuthenticationManager.swift in Sources */,
@@ -309,7 +318,6 @@
 				B40CAB68229B96760078C5D2 /* PurchaseViewController.swift in Sources */,
 				B40278F922962732005A5691 /* CartItem.swift in Sources */,
 				B405D47A2297706E0076ACAC /* Cart.swift in Sources */,
-				B4EF3524227A343B0019A42A /* SupermarketItem.swift in Sources */,
 				B404AA63228E2FC200E6085B /* AuthenticationResponse.swift in Sources */,
 				B40278F7229626A7005A5691 /* Banners.swift in Sources */,
 				B4E6A2682278013900862A64 /* ViewControllerTableViewCell.swift in Sources */,
