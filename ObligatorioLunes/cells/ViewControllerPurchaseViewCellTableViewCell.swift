@@ -29,8 +29,11 @@ class ViewControllerPurchaseViewCellTableViewCell: UITableViewCell {
     }
     
     
+    
     func configureCell() {
-        labelDate.text = String(describing: purchase.date)//"1"//CustomDateTransform.shared.transformToJSON(purchase.date)
+        let formatter = DateFormatter()
+         formatter.dateFormat = "yyyy-MM-dd HH:mm"
+        labelDate.text = formatter.string(from: purchase.date!)//CustomDateTransform.shared.transformToJSON(purchase.date)
         labelTotal.text = "1"
     }
     

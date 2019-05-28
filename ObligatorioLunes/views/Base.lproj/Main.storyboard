@@ -405,37 +405,31 @@
                                             <rect key="frame" x="0.0" y="0.0" width="365" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B7N-Vr-gJN">
-                                                    <rect key="frame" x="314" y="7" width="46" height="30"/>
-                                                    <state key="normal" title="Button"/>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B7N-Vr-gJN">
+                                                    <rect key="frame" x="302" y="7" width="58" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="Details"/>
                                                     <connections>
                                                         <action selector="ButtonPurchaseDetails:" destination="Hz6-Dt-REW" eventType="touchUpInside" id="7sh-xF-aXX"/>
+                                                        <action selector="ClickDetailsButton:" destination="ZEZ-fJ-9Om" eventType="touchUpInside" id="5Zd-Ml-AnM"/>
                                                     </connections>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6wq-OL-F0Q" userLabel="LabelDate">
-                                                    <rect key="frame" x="5" y="11.5" width="42" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6wq-OL-F0Q" userLabel="LabelDate">
+                                                    <rect key="frame" x="5" y="12" width="166" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fLU-vh-bO1" userLabel="LabelTotal">
-                                                    <rect key="frame" x="161.5" y="12" width="42" height="20"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fLU-vh-bO1" userLabel="LabelTotal">
+                                                    <rect key="frame" x="193" y="13" width="101" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstItem="6wq-OL-F0Q" firstAttribute="centerY" secondItem="fLU-vh-bO1" secondAttribute="centerY" id="67g-iF-Go8"/>
-                                                <constraint firstItem="fLU-vh-bO1" firstAttribute="centerY" secondItem="Pyx-bx-UvX" secondAttribute="centerY" id="HD2-QB-NlG"/>
-                                                <constraint firstItem="B7N-Vr-gJN" firstAttribute="centerY" secondItem="fLU-vh-bO1" secondAttribute="centerY" id="oxY-MF-ZGe"/>
-                                                <constraint firstItem="fLU-vh-bO1" firstAttribute="centerX" secondItem="Pyx-bx-UvX" secondAttribute="centerX" id="xWI-ns-dnh"/>
-                                            </constraints>
                                         </tableViewCellContentView>
-                                        <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="B7N-Vr-gJN" secondAttribute="trailing" constant="5" id="0uN-av-fUF"/>
-                                            <constraint firstItem="6wq-OL-F0Q" firstAttribute="leading" secondItem="su1-mB-fft" secondAttribute="leading" constant="5" id="shm-Is-3Gk"/>
-                                        </constraints>
                                         <connections>
                                             <outlet property="cellPurchase" destination="B7N-Vr-gJN" id="5Ah-wn-hff"/>
                                             <outlet property="labelDate" destination="6wq-OL-F0Q" id="LJt-Pd-4Qb"/>
@@ -460,6 +454,7 @@
                     </view>
                     <connections>
                         <outlet property="purchaseTableView" destination="xhZ-Xs-MBL" id="kpz-zy-Otr"/>
+                        <segue destination="I5C-Iy-Khm" kind="show" id="rOg-ku-hEp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YhY-AS-Uhj" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -495,5 +490,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Duy-Ui-P1X"/>
+        <segue reference="4UC-HV-v51"/>
     </inferredMetricsTieBreakers>
 </document>

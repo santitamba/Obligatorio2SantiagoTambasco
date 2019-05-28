@@ -26,6 +26,21 @@ class PurchaseViewController: UIViewController,UITableViewDataSource, UITableVie
     }
     
 
+        //checkoutCartViewController.purchaseCart = purchases[(purchaseTableView.indexPathForSelectedRow?.row)!].convertToCart()
+
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            let controller = segue.destination as! SecondScreenViewController
+            controller.elements=purchases[(purchaseTableView.indexPathForSelectedRow?.row)!]
+                //controller.elements = currentItems
+                //var tempElements0 = currentItems[0].filter({$0.quantity > 0 }) //Le paso todo lo de la seccion 0
+                //let tempElements1 = currentItems[1].filter({$0.quantity > 0 })//Le paso todo lo de la seccion 1
+                //tempElements0.append(contentsOf: tempElements1)
+                //controller.elements = tempElements0
+
+    }
+    
+
     /*
     // MARK: - Navigation
 
@@ -70,4 +85,7 @@ class PurchaseViewController: UIViewController,UITableViewDataSource, UITableVie
         
     }
 
+    @IBAction func ClickDetailsButton(_ sender: Any) {
+        self.performSegue(withIdentifier: "DetialsViewSegue", sender: self)
+    }
 }

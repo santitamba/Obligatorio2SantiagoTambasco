@@ -20,7 +20,7 @@ extension Purchase: Mappable {
     //init?(map: Map) { }
     //mutating
     func mapping(map: Map){
-        date <- map["date"]
+        date <- (map["date"],CustomDateTransform())
         products <- map["products"]
     }
 }
