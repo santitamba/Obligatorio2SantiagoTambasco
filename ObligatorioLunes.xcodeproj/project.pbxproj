@@ -88,6 +88,7 @@
 				B40278FE2296296A005A5691 /* ApiManager.swift */,
 			);
 			name = Managers;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		B404AA64228E330300E6085B /* ProfesorMethod */ = {
@@ -116,7 +117,6 @@
 		B4E6A2472277EE5400862A64 = {
 			isa = PBXGroup;
 			children = (
-				B403C0DA229CD154002F307D /* Managers */,
 				B4E6A2522277EE5400862A64 /* ObligatorioLunes */,
 				B4E6A2512277EE5400862A64 /* Products */,
 				9F423693D215749CA85CB198 /* Pods */,
@@ -135,6 +135,7 @@
 		B4E6A2522277EE5400862A64 /* ObligatorioLunes */ = {
 			isa = PBXGroup;
 			children = (
+				B403C0DA229CD154002F307D /* Managers */,
 				B404AA64228E330300E6085B /* ProfesorMethod */,
 				B4F0FFD62282721F006C1471 /* controllers */,
 				B4F0FFD72282722E006C1471 /* views */,
