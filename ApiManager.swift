@@ -80,7 +80,7 @@ class ApiManager{
         var param = Parameters()
         param.updateValue(cart.toJSON(), forKey: "cart")
         var cartjson=cart.toJSON()
-        
+         
         Alamofire.request(url, method: .post, parameters: param, encoding: JSONEncoding.default, headers: headers).response { response in
             guard let error = response.error else {
                 if response.response?.statusCode == 200 {
