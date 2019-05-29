@@ -34,7 +34,12 @@ class ViewControllerPurchaseViewCellTableViewCell: UITableViewCell {
         let formatter = DateFormatter()
          formatter.dateFormat = "yyyy-MM-dd HH:mm"
         labelDate.text = formatter.string(from: purchase.date!)//CustomDateTransform.shared.transformToJSON(purchase.date)
-        labelTotal.text = "1"
+        var totalAmount: Double = 0
+        for purch in purchase.products!{
+            let pamount = Double(purch.quantity!) * (purch.product?.price)!
+            totalAmount = totalAmount + pamount
+        }
+        labelTotal.text = "$"+String(totalAmount)
     }
     
     @IBAction func ButtonPurchaseDetails(_ sender: Any) {

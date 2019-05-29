@@ -40,6 +40,7 @@ class ViewController: UIViewController {
     var veggies = [SuperItem]()
     var dairys = [SuperItem]()
     var products = [SuperItem]()
+    var productsPurc = [SuperItem]()
     
     var cartItems = [CartItem]()
     
@@ -67,7 +68,7 @@ class ViewController: UIViewController {
         
 //        pageView.numberOfPages=imgArr.count
 //        pageView.currentPage=0
-//        myTableView.reloadData()
+        myTableView.reloadData()
     }
     
     private func setUpBanners(){
@@ -153,6 +154,7 @@ class ViewController: UIViewController {
                 tempElements0.append(contentsOf: tempElements1)
                 tempElements0.append(contentsOf: tempElements2)
                 controller.cart=tempElements0
+                controller.readOnlye=false
                 
                 //controller.elements=currentItems
 

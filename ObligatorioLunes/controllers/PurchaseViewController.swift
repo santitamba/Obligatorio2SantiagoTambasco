@@ -13,7 +13,8 @@ class PurchaseViewController: UIViewController,UITableViewDataSource, UITableVie
     @IBOutlet weak var purchaseTableView: UITableView!
     
     var purchases = [Purchase]()
-    var cart = [ProductCart]()
+    var cartP = [ProductCart]()
+    var cartPurch = [SuperItem]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +33,12 @@ class PurchaseViewController: UIViewController,UITableViewDataSource, UITableVie
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             let controller = segue.destination as! SecondScreenViewController
-            controller.elements=SessionManager.cartItems!
+            //controller.elements=SessionManager.cartItems!
+            for c in cartP{
+                cartPurch.append(c.product!)
+            }
+            controller.cartPurch=cartPurch
+            controller.readOnlye=true
         
     }
     
@@ -55,6 +61,7 @@ class PurchaseViewController: UIViewController,UITableViewDataSource, UITableVie
         let cellPurchase = tableView.dequeueReusableCell(withIdentifier: "cellPurchase", for: indexPath) as! ViewControllerPurchaseViewCellTableViewCell
         
         cellPurchase.purchase = purchases[indexPath.row]
+        cartP=purchases[indexPath.row].products!
         
         cellPurchase.configureCell()
         
