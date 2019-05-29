@@ -31,6 +31,8 @@ class SecondScreenViewController: UIViewController, UICollectionViewDelegate,UIC
         // Connect data:
         self.picker.delegate = self
         self.picker.dataSource = self
+        self.SecondView.delegate=self
+        self.SecondView.dataSource=self
         picker.isHidden = true
         picker.showsSelectionIndicator = true
         
@@ -43,30 +45,6 @@ class SecondScreenViewController: UIViewController, UICollectionViewDelegate,UIC
         // Dispose of any resources that can be recreated.
     }
     
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return pickerData.count
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return String(pickerData[row])
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        quantPiker=pickerData[row]
-        picker.isHidden = true
-        elements[row].quantity=quantPiker!
-        for x in 0..<elements.count{
-            if elements[x].productId==itemPickerSelected{
-                elements[x].quantity=quantPiker!
-            }
-
-        }
-        SecondView.reloadData()
-    }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return cartItems!.count
@@ -101,7 +79,7 @@ class SecondScreenViewController: UIViewController, UICollectionViewDelegate,UIC
         
         //cellSecondView.item = cart[indexPath.row]
         cellSecondView.item = current
-        itemPickerSelected=cellSecondView.item.id!
+        //itemPickerSelected=cellSecondView.item.id!
 
         for car in cart{
             let itemPrice = Double(car.price!) * Double(car.quantity!)
@@ -117,10 +95,37 @@ class SecondScreenViewController: UIViewController, UICollectionViewDelegate,UIC
         return cellSecondView
     }
     
+
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return pickerData.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return String(pickerData[row])
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        quantPiker=pickerData[row]
+        picker.isHidden = true
+        elements[row].quantity=quantPiker!
+        for x in 0..<elements.count{
+            if elements[x].productId==itemPickerSelected{
+                elements[x].quantity=quantPiker!
+            }
+            
+        }
+        SecondView.reloadData()
+    }
+    
     //Atencion
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         //let index = pickerData.index(of: elements[itemPickerSelected].id)
         //picker.selectRow(index!, inComponent: 0, animated: false)
+        
         let cell = SecondView.cellForItem(at: indexPath) as! ViewControllerSeconViewCell
         itemPickerSelected=cell.item.id!
         picker.isHidden = false

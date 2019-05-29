@@ -27,7 +27,12 @@ class ViewControllerSeconViewCell: UICollectionViewCell{
         
         itemSubtitle.text = String(describing: item.quantity!)
         + " units"
-        imageView.image = UIImage(named: item.name!)
+        //imageView.image = UIImage(named: item.name!)
+        
+        if let photoUrl = item.photoUrl {
+            let url = URL(string: photoUrl)
+            imageView.kf.setImage(with: url)
+        }
         
     }
     

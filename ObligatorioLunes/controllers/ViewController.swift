@@ -286,9 +286,11 @@ extension ViewController: UpdateCartDelegate {
         
         if var current = currentItems.filter({$0.productId == item.id}).first{
             current.quantity = (current.quantity ?? 0) + 1
+            item.quantity = (item.quantity ?? 0) + 1
         } else {
             let newItem = CartItem(productId: item.id)
             currentItems.append(newItem)
+            item.quantity = 1
         }
         
         SessionManager.cartItems = currentItems
