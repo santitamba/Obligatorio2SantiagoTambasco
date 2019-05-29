@@ -58,7 +58,7 @@ class ViewControllerTableViewCell: UITableViewCell {
         }
         
         MyLabel.text = item.name
-        MyLabelPrice.text = "$ " + String(describing: item.price!)
+        MyLabelPrice.text = "$ " + String(describing: round(1000*item.price!)/1000)
         myImage.kf.setImage(with: url)
     }
     

@@ -21,6 +21,15 @@ class PurchaseViewController: UIViewController,UITableViewDataSource, UITableVie
         setUpPurchases()
         // Do any additional setup after loading the view.
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        //        pageView.numberOfPages=imgArr.count
+        //        pageView.currentPage=0
+        cartPurch.removeAll()
+        purchaseTableView.reloadData()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -34,6 +43,7 @@ class PurchaseViewController: UIViewController,UITableViewDataSource, UITableVie
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             let controller = segue.destination as! SecondScreenViewController
             //controller.elements=SessionManager.cartItems!
+        
             for c in cartP{
                 cartPurch.append(c.product!)
             }

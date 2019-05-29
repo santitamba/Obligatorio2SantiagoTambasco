@@ -63,12 +63,18 @@ class SecondScreenViewController: UIViewController, UICollectionViewDelegate,UIC
     
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if let cart=cartItems{
-            return cartItems!.count
+        if readOnlye==false{
+            if let cart=cartItems{
+                return cartItems!.count
+            }
+            else{
+                return 0
+            }
         }
         else{
             return cartPurch.count
         }
+
         
     }
         
@@ -97,9 +103,10 @@ class SecondScreenViewController: UIViewController, UICollectionViewDelegate,UIC
             return cellSecondView
         }
         else{
-            for e in cartPurch{
-                cellSecondView.item = e
-            }
+            //for e in cartPurch{
+            //    cellSecondView.item = e
+            //}
+            cellSecondView.item = cartPurch[indexPath.row]
             //for car in cartPurch{
               //  let itemPrice = Double(car.price!) * Double(car.quantity!)
              //   totalPrice = totalPrice + itemPrice
@@ -160,11 +167,17 @@ class SecondScreenViewController: UIViewController, UICollectionViewDelegate,UIC
             //.filter({$0.id! == itemCartId}).first
         if readOnlye==false{
             totalPrice=0
-            for elem in cartItems!{
-                var unitPrice = cart.filter({$0.id! == elem.productId}).first?.price
-                totalPrice = totalPrice+(Double(elem.quantity!) * unitPrice!)
+            if let cartItems = cartItems{
+                for elem in cartItems{
+                    var unitPrice = cart.filter({$0.id! == elem.productId}).first?.price
+                    totalPrice = totalPrice+(Double(elem.quantity!) * unitPrice!)
+                }
+                TotalPriceLabel.text = "$" + String(totalPrice)
             }
-            TotalPriceLabel.text = "$" + String(totalPrice)
+            else{
+                TotalPriceLabel.text = "$" + String(totalPrice)
+            }
+
         }
         else{
             totalPrice=0

@@ -23,7 +23,7 @@ class ViewControllerSeconViewCell: UICollectionViewCell{
     
     func configure() {
         itemTitle.text = item.name
-        itemPrice.text = "$ " + String(item.price! * Double(item.quantity!))
+        itemPrice.text = "$ " + String((item.price!) * Double(item.quantity!))
         
         itemSubtitle.text = String(describing: item.quantity!)
         + " units"

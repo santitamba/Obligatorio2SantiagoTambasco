@@ -36,7 +36,7 @@ class ViewControllerPurchaseViewCellTableViewCell: UITableViewCell {
         labelDate.text = formatter.string(from: purchase.date!)//CustomDateTransform.shared.transformToJSON(purchase.date)
         var totalAmount: Double = 0
         for purch in purchase.products!{
-            let pamount = Double(purch.quantity!) * (purch.product?.price)!
+            let pamount = Double(purch.quantity!) * round(1000*(purch.product?.price)!)/1000
             totalAmount = totalAmount + pamount
         }
         labelTotal.text = "$"+String(totalAmount)
