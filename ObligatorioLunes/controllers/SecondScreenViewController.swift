@@ -86,7 +86,6 @@ class SecondScreenViewController: UIViewController, UICollectionViewDelegate,UIC
         //SessionManager.cartItems = currentItems
         
         //buscar en la elements el elemento con el id de ese elemen y trabajo con ese
-        var cartItems = SessionManager.cartItems
         var itemCartId = cartItems![indexPath.row].productId
         var current = cart.filter({$0.id! == itemCartId}).first
         //cart=cart.filter($0.id == itemCartId)
