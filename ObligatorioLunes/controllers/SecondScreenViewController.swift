@@ -22,6 +22,8 @@ class SecondScreenViewController: UIViewController, UICollectionViewDelegate,UIC
     var elements=[CartItem]()
     var totalPrice: Double = 0
     var quantPiker: Int?
+    var cart=[SuperItem]()
+    var cartItems = SessionManager.cartItems
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,7 +58,7 @@ class SecondScreenViewController: UIViewController, UICollectionViewDelegate,UIC
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         quantPiker=pickerData[row]
         picker.isHidden = true
-        //elements[row].quantity=quantPiker!
+        elements[row].quantity=quantPiker!
         for x in 0..<elements.count{
             if elements[x].productId==itemPickerSelected{
                 elements[x].quantity=quantPiker!
@@ -67,7 +69,7 @@ class SecondScreenViewController: UIViewController, UICollectionViewDelegate,UIC
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return elements.count
+        return cartItems!.count
     }
         
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -82,24 +84,31 @@ class SecondScreenViewController: UIViewController, UICollectionViewDelegate,UIC
           //  currentItems.append(newItem)
        // }
         //SessionManager.cartItems = currentItems
+        
+        //buscar en la elements el elemento con el id de ese elemen y trabajo con ese
         var cartItems = SessionManager.cartItems
-        if var current = cartItems?.filter({$0.productId ==  cellSecondView.item.id}).first{
-            itemPickerSelected=cellSecondView.item.id!
-            let itemPrice = Double(current.quantity!) * cellSecondView.item.price!
-            totalPrice = totalPrice + itemPrice
-        }else{
-            print("hola")
-        }
-        
-        
-        //cellSecondView.item = elements[indexPath.row]
-        //itemPickerSelected=cellSecondView.item.id
-
-        //for element in elements{
-         //   let itemPrice = Double(element.quantity!) * Double(element.price)
+        var itemCartId = cartItems![indexPath.row].productId
+        var current = cart.filter({$0.id! == itemCartId}).first
+        //cart=cart.filter($0.id == itemCartId)
+        //if var current = cart[indexPath.row].filter($0.id == cartItems[indexPath.row].id){
+        //if var current = cartItems?.filter({$0.productId ==  cellSecondView.item.id}).first{
+        //    itemPickerSelected=cellSecondView.item.id!
+         //   let itemPrice = Double(current.quantity!) * cellSecondView.item.price!
           //  totalPrice = totalPrice + itemPrice
+        //}else{
+        //    print("hola")
+       // }
+        
+        
+        //cellSecondView.item = cart[indexPath.row]
+        cellSecondView.item = current
+        itemPickerSelected=cellSecondView.item.id!
 
-        //}
+        for car in cart{
+            let itemPrice = Double(car.price!) * Double(car.quantity!)
+            totalPrice = totalPrice + itemPrice
+
+        }
         TotalPriceLabel.text = "$" + String(totalPrice)
         if elements.count>0{
             ChechoutButton.isEnabled=true

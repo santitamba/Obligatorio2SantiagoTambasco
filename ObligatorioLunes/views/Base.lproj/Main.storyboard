@@ -454,7 +454,7 @@
                     </view>
                     <connections>
                         <outlet property="purchaseTableView" destination="xhZ-Xs-MBL" id="kpz-zy-Otr"/>
-                        <segue destination="I5C-Iy-Khm" kind="show" id="rOg-ku-hEp"/>
+                        <segue destination="I5C-Iy-Khm" kind="show" identifier="DetailsViewSegue" id="rOg-ku-hEp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YhY-AS-Uhj" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -490,6 +490,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Duy-Ui-P1X"/>
-        <segue reference="4UC-HV-v51"/>
+        <segue reference="rOg-ku-hEp"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -139,11 +139,23 @@ class ViewController: UIViewController {
     @IBAction func CartButton(_ sender: UIBarButtonItem) {
         self.performSegue(withIdentifier: "SecondViewSegue", sender: self)
     }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier=="SecondViewSegue"{
             if let controller = segue.destination as? SecondScreenViewController{
-                controller.elements=SessionManager.cartItems!
+                
+                //currentItems.filter({$0.productId == item.id}).first
+                //controller.cart = currentItems[0].filter({$0.quantity! > 0})
+                //controller.elements=SessionManager.cartItems!
+                
+                var tempElements0 = currentItems[0].filter({$0.quantity! >= 0 }) //Le paso todo lo de la seccion 0
+                let tempElements1 = currentItems[1].filter({$0.quantity! >= 0 })//Le paso todo lo de la seccion 1
+                let tempElements2 = currentItems[2].filter({$0.quantity! >= 0 })//Le paso todo lo de la seccion 1
+                tempElements0.append(contentsOf: tempElements1)
+                tempElements0.append(contentsOf: tempElements2)
+                controller.cart=tempElements0
+                
+                //controller.elements=currentItems
+
                 //controller.elements = currentItems
                 //var tempElements0 = currentItems[0].filter({$0.quantity > 0 }) //Le paso todo lo de la seccion 0
                 //let tempElements1 = currentItems[1].filter({$0.quantity > 0 })//Le paso todo lo de la seccion 1

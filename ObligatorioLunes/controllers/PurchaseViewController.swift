@@ -13,6 +13,7 @@ class PurchaseViewController: UIViewController,UITableViewDataSource, UITableVie
     @IBOutlet weak var purchaseTableView: UITableView!
     
     var purchases = [Purchase]()
+    var cart = [ProductCart]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,9 +32,8 @@ class PurchaseViewController: UIViewController,UITableViewDataSource, UITableVie
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             let controller = segue.destination as! SecondScreenViewController
-            //controller.elements=purchases[(purchaseTableView.indexPathForSelectedRow?.row)!]
-            controller.elements=
-
+            controller.elements=SessionManager.cartItems!
+        
     }
     
 
@@ -82,6 +82,6 @@ class PurchaseViewController: UIViewController,UITableViewDataSource, UITableVie
     }
 
     @IBAction func ClickDetailsButton(_ sender: Any) {
-        self.performSegue(withIdentifier: "DetialsViewSegue", sender: self)
+        self.performSegue(withIdentifier: "DetailsViewSegue", sender: self)
     }
 }
