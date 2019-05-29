@@ -299,7 +299,11 @@ extension ViewController: UpdateCartDelegate {
     }
     
     func remove(item: SuperItem) {
-        SessionManager.cartItems = SessionManager.cartItems?.filter {$0.productId != item.id}
+        var currentItems = SessionManager.cartItems ?? []
+        //SessionManager.cartItems = SessionManager.cartItems?.filter {$0.productId != item.id}
+        var current = currentItems.filter({$0.productId == item.id}).first
+        current?.quantity = (current?.quantity ?? 0) - 1
+        item.quantity = (item.quantity ?? 0) - 1
     }
     
 }
