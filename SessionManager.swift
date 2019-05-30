@@ -11,10 +11,11 @@ import Foundation
 class SessionManager: NSObject {
     
     static let shared = SessionManager()
-    
+    static var purchase: Purchase?
     static var cartItems: [CartItem]?
     
     static func deleteAllData(){
         self.cartItems = []
     }
+    
 }

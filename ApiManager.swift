@@ -23,6 +23,8 @@ class ApiManager{
         }
     }
     
+
+    
     func obtainProducts(onCompletion: @escaping ([SuperItem]?,Error?) -> Void) {
         let url = baseUrl + "products"
         

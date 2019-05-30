@@ -40,9 +40,15 @@ class SecondScreenViewController: UIViewController, UICollectionViewDelegate,UIC
             picker.isHidden = true
             picker.showsSelectionIndicator = true
             ChechoutButton.isEnabled=false
+            if ChechoutButton.isEnabled==false{
+                ChechoutButton.alpha=0.5
+            }
+            else{
+                ChechoutButton.alpha=1
+            }
         }
         else{
-            picker.isHidden = false
+            picker.isHidden = true
             picker.showsSelectionIndicator = false
             ChechoutButton.isHidden=true
         }
@@ -113,6 +119,12 @@ class SecondScreenViewController: UIViewController, UICollectionViewDelegate,UIC
             //}
             //TotalPriceLabel.text = "$" + String(totalPrice)
             ChechoutButton.isEnabled=false
+            if ChechoutButton.isEnabled==false{
+                ChechoutButton.alpha=0.5
+            }
+            else{
+                ChechoutButton.alpha=1
+            }
             picker.isHidden=true
             cellSecondView.configure()
             return cellSecondView

@@ -15,6 +15,8 @@ class ViewControllerPurchaseViewCellTableViewCell: UITableViewCell {
     @IBOutlet weak var labelTotal: UILabel!
     
     var purchase : Purchase!
+    var delegate: showPurchaseDelegate!
+    var indexPath: IndexPath!
     
     
     override func awakeFromNib() {
@@ -41,8 +43,10 @@ class ViewControllerPurchaseViewCellTableViewCell: UITableViewCell {
         }
         labelTotal.text = "$"+String(totalAmount)
     }
+
     
     @IBAction func ButtonPurchaseDetails(_ sender: Any) {
+        delegate.showPurchases(indexPath: indexPath)
     }
 
 }

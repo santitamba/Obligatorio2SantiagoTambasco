@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol showPurchaseDelegate {
+    func showPurchases(indexPath: IndexPath)
+}
+
+
 class PurchaseViewController: UIViewController,UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var purchaseTableView: UITableView!
@@ -63,6 +68,7 @@ class PurchaseViewController: UIViewController,UITableViewDataSource, UITableVie
     }
     */
     
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return purchases.count
     }
@@ -70,8 +76,10 @@ class PurchaseViewController: UIViewController,UITableViewDataSource, UITableVie
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellPurchase = tableView.dequeueReusableCell(withIdentifier: "cellPurchase", for: indexPath) as! ViewControllerPurchaseViewCellTableViewCell
         
+        cellPurchase.delegate = self
+        cellPurchase.indexPath = indexPath
         cellPurchase.purchase = purchases[indexPath.row]
-        cartP=purchases[indexPath.row].products!
+        //cartP=purchases[indexPath.row].products!
         
         cellPurchase.configureCell()
         
@@ -101,4 +109,11 @@ class PurchaseViewController: UIViewController,UITableViewDataSource, UITableVie
     @IBAction func ClickDetailsButton(_ sender: Any) {
         self.performSegue(withIdentifier: "DetailsViewSegue", sender: self)
     }
+}
+
+extension PurchaseViewController: showPurchaseDelegate {
+    func showPurchases(indexPath: IndexPath) {
+        cartP=purchases[indexPath.row].products!
+    }
+    
 }

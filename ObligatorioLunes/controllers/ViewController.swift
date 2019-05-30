@@ -303,6 +303,9 @@ extension ViewController: UpdateCartDelegate {
         //SessionManager.cartItems = SessionManager.cartItems?.filter {$0.productId != item.id}
         var current = currentItems.filter({$0.productId == item.id}).first
         current?.quantity = (current?.quantity ?? 0) - 1
+        if current?.quantity==0{
+            SessionManager.cartItems = SessionManager.cartItems?.filter {$0.productId != item.id}
+        }
         item.quantity = (item.quantity ?? 0) - 1
     }
     

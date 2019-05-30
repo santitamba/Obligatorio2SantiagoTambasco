@@ -411,6 +411,7 @@
                                                     <state key="normal" title="Details"/>
                                                     <connections>
                                                         <action selector="ButtonPurchaseDetails:" destination="Hz6-Dt-REW" eventType="touchUpInside" id="7sh-xF-aXX"/>
+                                                        <action selector="ButtonPurchaseDetails:" destination="su1-mB-fft" eventType="touchUpInside" id="8tW-Rj-Z3E"/>
                                                         <action selector="ClickDetailsButton:" destination="ZEZ-fJ-9Om" eventType="touchUpInside" id="5Zd-Ml-AnM"/>
                                                     </connections>
                                                 </button>
