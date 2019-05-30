@@ -20,6 +20,7 @@ class PurchaseViewController: UIViewController,UITableViewDataSource, UITableVie
     var purchases = [Purchase]()
     var cartP = [ProductCart]()
     var cartPurch = [SuperItem]()
+    var qty: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,8 +49,8 @@ class PurchaseViewController: UIViewController,UITableViewDataSource, UITableVie
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             let controller = segue.destination as! SecondScreenViewController
             //controller.elements=SessionManager.cartItems!
-        
             for c in cartP{
+                c.product?.quantity=qty
                 cartPurch.append(c.product!)
             }
             controller.cartPurch=cartPurch
@@ -114,6 +115,7 @@ class PurchaseViewController: UIViewController,UITableViewDataSource, UITableVie
 extension PurchaseViewController: showPurchaseDelegate {
     func showPurchases(indexPath: IndexPath) {
         cartP=purchases[indexPath.row].products!
+        qty=cartP[indexPath.row].quantity
     }
     
 }
