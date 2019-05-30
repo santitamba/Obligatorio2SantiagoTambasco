@@ -9,102 +9,8 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ObligatorioLunes/cells/ViewControllerPurchaseViewCellTableViewCell.swift"
-            timestampString = "580872266.662249"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
-            landmarkName = "configureCell()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ObligatorioLunes/cells/ViewControllerPurchaseViewCellTableViewCell.swift"
-            timestampString = "580872266.662819"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "17"
-            endingLineNumber = "17"
-            landmarkName = "ViewControllerPurchaseViewCellTableViewCell"
-            landmarkType = "3">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "ObligatorioLunes.ViewControllerPurchaseViewCellTableViewCell.purchase.getter : Swift.ImplicitlyUnwrappedOptional&lt;ObligatorioLunes.Purchase&gt;"
-                  moduleName = "ObligatorioLunes"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/adrianperezgarrone/Documents/GitHub/Obligatorio2SantiagoTambaso/Obligatorio2SantiagoTambasco/ObligatorioLunes/cells/ViewControllerPurchaseViewCellTableViewCell.swift"
-                  timestampString = "580774171.278798"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "17"
-                  endingLineNumber = "17"
-                  offsetFromSymbolStart = "105">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "ObligatorioLunes.ViewControllerPurchaseViewCellTableViewCell.purchase.setter : Swift.ImplicitlyUnwrappedOptional&lt;ObligatorioLunes.Purchase&gt;"
-                  moduleName = "ObligatorioLunes"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/adrianperezgarrone/Documents/GitHub/Obligatorio2SantiagoTambaso/Obligatorio2SantiagoTambasco/ObligatorioLunes/cells/ViewControllerPurchaseViewCellTableViewCell.swift"
-                  timestampString = "580774171.2845809"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "17"
-                  endingLineNumber = "17"
-                  offsetFromSymbolStart = "110">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "ObligatorioLunes.ViewControllerPurchaseViewCellTableViewCell.init(style: __C.UITableViewCellStyle, reuseIdentifier: Swift.Optional&lt;Swift.String&gt;) -&gt; ObligatorioLunes.ViewControllerPurchaseViewCellTableViewCell"
-                  moduleName = "ObligatorioLunes"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/adrianperezgarrone/Documents/GitHub/Obligatorio2SantiagoTambaso/Obligatorio2SantiagoTambasco/ObligatorioLunes/cells/ViewControllerPurchaseViewCellTableViewCell.swift"
-                  timestampString = "580774171.288893"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "17"
-                  endingLineNumber = "17"
-                  offsetFromSymbolStart = "492">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "ObligatorioLunes.ViewControllerPurchaseViewCellTableViewCell.init(coder: __ObjC.NSCoder) -&gt; Swift.Optional&lt;ObligatorioLunes.ViewControllerPurchaseViewCellTableViewCell&gt;"
-                  moduleName = "ObligatorioLunes"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/adrianperezgarrone/Documents/GitHub/Obligatorio2SantiagoTambaso/Obligatorio2SantiagoTambasco/ObligatorioLunes/cells/ViewControllerPurchaseViewCellTableViewCell.swift"
-                  timestampString = "580774171.292019"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "17"
-                  endingLineNumber = "17"
-                  offsetFromSymbolStart = "386">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "ObligatorioLunes/controllers/ViewController.swift"
-            timestampString = "580872266.663192"
+            timestampString = "580873914.632172"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "151"
@@ -152,7 +58,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ObligatorioLunes/controllers/SecondScreenViewController.swift"
-            timestampString = "580872266.663262"
+            timestampString = "580873914.632296"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "102"
@@ -167,13 +73,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ObligatorioLunes/controllers/PurchaseViewController.swift"
-            timestampString = "580872266.663763"
+            filePath = "ObligatorioLunes/controllers/SecondScreenViewController.swift"
+            timestampString = "580873914.632903"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "116"
-            endingLineNumber = "116"
-            landmarkName = "showPurchases(indexPath:)"
+            startingLineNumber = "115"
+            endingLineNumber = "115"
+            landmarkName = "collectionView(_:cellForItemAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -183,13 +89,45 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ObligatorioLunes/cells/ViewControllerPurchaseViewCellTableViewCell.swift"
-            timestampString = "580872266.663835"
+            filePath = "ObligatorioLunes/controllers/SecondScreenViewController.swift"
+            timestampString = "580873914.633147"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
-            landmarkName = "ButtonPurchaseDetails(_:)"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
+            landmarkName = "collectionView(_:cellForItemAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ObligatorioLunes/controllers/SecondScreenViewController.swift"
+            timestampString = "580873914.6333719"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "129"
+            endingLineNumber = "129"
+            landmarkName = "collectionView(_:cellForItemAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ObligatorioLunes/cells/ViewControllerSeconViewCell.swift"
+            timestampString = "580873172.517192"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "configure()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

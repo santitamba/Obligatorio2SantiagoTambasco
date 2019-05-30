@@ -113,11 +113,11 @@ class SecondScreenViewController: UIViewController, UICollectionViewDelegate,UIC
             //    cellSecondView.item = e
             //}
             cellSecondView.item = cartPurch[indexPath.row]
-            //for car in cartPurch{
-              //  let itemPrice = Double(car.price!) * Double(car.quantity!)
-             //   totalPrice = totalPrice + itemPrice
-            //}
-            //TotalPriceLabel.text = "$" + String(totalPrice)
+            for car in cartPurch{
+                let itemPrice = Double(car.price!) * Double(car.quantity!)
+                totalPrice = totalPrice + itemPrice
+            }
+            TotalPriceLabel.text = "$" + String(totalPrice)
             ChechoutButton.isEnabled=false
             if ChechoutButton.isEnabled==false{
                 ChechoutButton.alpha=0.5
